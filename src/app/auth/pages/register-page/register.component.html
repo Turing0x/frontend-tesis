@@ -2,7 +2,7 @@
 
 <form [formGroup]="myForm" class="form-container" action="">
 
-  <h1>Register</h1>
+  <h1>Registro</h1>
 
   <div>
     <label for="name">Nombre:</label>
@@ -23,12 +23,15 @@
   </div>
 
   <div>
-    <label for="password">Password:</label>
+    <label for="password">Contraseña:</label>
     <input formControlName="password" id="password" type="text">
     <span class="error">Error</span>
   </div>
 
-  <button (click)="onSubmit()" type="button">Register</button>
+  <button (click)="onSubmit()" type="button">
+    <i class="material-icons">how_to_reg</i>
+    Registrarse
+  </button>
 
 </form>
 

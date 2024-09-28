@@ -5,6 +5,32 @@ section{
   flex-direction: row;
 }
 
+div{
+  margin-left: 20px;
+  width: 80%;
+}
+
+li {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  list-style: none;
+}
+
+header {
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+hr{
+  align-self: center;
+  width: 90%;
+}
+
 .sidebar {
   width: 20%;
   height: 100vh;
@@ -17,39 +43,14 @@ section{
 .sidebar a {
   color: #ecf0f1;
   text-decoration: none;
-  margin: 10px 0;
+  margin: 10px;
+  margin-left: 2px;
   padding: 10px;
   border-radius: 4px;
   transition: background-color 0.3s;
 }
 
-li {
-  margin-top: 15px;
-  margin-bottom: 15px;
-  list-style: none;
-}
-
 .sidebar a:hover {
   cursor: pointer;
   background-color: #34495e;
-}
-
-.sidebar .logo {
-  font-size: 1.5em;
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-.sidebar .menu {
-  flex-grow: 1;
-}
-
-.sidebar .footer {
-  text-align: center;
-  margin-top: auto;
-  font-size: 0.9em;
-}
-
-div{
-  width: 80%;
 }

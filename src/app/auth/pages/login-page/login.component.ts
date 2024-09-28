@@ -4,7 +4,6 @@ import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/cor
 import { AuthService } from '../../services/auth.service';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { PendingExercisesService } from '../../../services/pending-exercises.service';
 
 @Component({
   selector: 'auth-login',
@@ -20,8 +19,6 @@ import { PendingExercisesService } from '../../../services/pending-exercises.ser
 export class LoginPageComponent implements OnInit{
 
   private authService = inject(AuthService);
-
-  private peService = inject(PendingExercisesService);
 
   private fb = inject(FormBuilder);
 
@@ -47,13 +44,9 @@ export class LoginPageComponent implements OnInit{
     this.authService.login( email, password).subscribe(
       response => {
         if (response.success){
-          const [user, pending_exercises] = response.data
+          const [user] = response.data
 
-          console.log('Response:', response);
-          console.log('User:', user);
-          console.log('Pending Exercises:', pending_exercises);
-
-          this.peService.setPendingExercises(pending_exercises);
+          localStorage.setItem("user_id", user._id!);
           this.router.navigate(['/student']);
 
         }else{

@@ -4,13 +4,19 @@ import { RegisterPageComponent } from './pages/register-page/register.component'
 
 export const routes: Routes = [
   {
-    path: '',
+    path: 'login',
     component: LoginPageComponent
   },
   {
     path: 'register',
     component: RegisterPageComponent
+  },
+  {
+    path: '',
+    redirectTo: 'login',
+    pathMatch: 'full'
   }
+
 ];
 
 export const AuthRoutes = routes;

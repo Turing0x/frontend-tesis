@@ -22,7 +22,7 @@ export const routes: Routes = [
         pathMatch: 'full'
       }
     ]
-  },
+  }
 ]
 
 

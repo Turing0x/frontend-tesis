@@ -42,6 +42,9 @@ div {
 }
 
 button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%; /* Ancho completo del botón */
   padding: 10px; /* Espaciado interno del botón */
   background-color: #007bff; /* Color de fondo del botón */
@@ -53,4 +56,8 @@ button {
 
 button:hover {
   background-color: #0056b3; /* Color más oscuro al pasar el mouse sobre el botón */
+}
+
+i{
+  margin-right: 8px;
 }

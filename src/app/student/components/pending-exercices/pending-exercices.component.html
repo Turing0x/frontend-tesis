@@ -1,2 +1,14 @@
-<p>pending-exercices works!</p>
-<p> {{ pendingExercises[0].description }} </p>
+
+<ul>
+  @for (pend of pendingExercises; track $index) {
+      <div class="card">
+        <span>Ejercicio:</span>
+        <h3>Descripción:</h3>
+        <p>{{pend.description}}</p>
+
+        <a routerLink="exercise" >Detalles</a>
+      </div>
+  }
+</ul>
+
+<router-outlet></router-outlet>

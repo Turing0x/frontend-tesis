@@ -1,0 +1,57 @@
+h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+button {
+  display: flex;
+  align-items: center;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+i{
+  margin-right: 8px;
+}
+
+p{
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px;
+  background-color: #f9f9f9;
+  margin-bottom: 20px;
+}
+
+div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+section{
+  padding: 40px;
+}
+
+.no-anotations {
+  font-size: 16px;
+  color: #999;
+  margin-bottom: 20px;
+}
+
+.anotations {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 20px;
+}

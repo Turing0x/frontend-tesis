@@ -3,5 +3,6 @@ export type Exercise = {
   description: string;
   posible_solution: string;
   solution: string;
-  exercise_files_info: string[];
+  anotations: string;
+  exercise_files_info: object[];
 }

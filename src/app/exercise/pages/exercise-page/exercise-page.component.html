@@ -1,1 +1,22 @@
-<p>exercise-page works!</p>
+@if (exercise) {
+
+  <section>
+    <h2>Descripción del ejercicio:</h2>
+    <p> {{ exercise.description }} </p>
+
+    <h2>Anotaciones:</h2>
+    @if (!exercise.anotations) {
+      <p class="no-anotations" >No hay anotaciones</p>
+    }@else {
+      <p class="anotations" > {{ exercise.anotations }} </p>
+    }
+  </section>
+
+  <div>
+    <button>
+      <i class="material-icons">download</i>
+      Descargar ficheros del ejercicio
+    </button>
+  </div>
+
+}

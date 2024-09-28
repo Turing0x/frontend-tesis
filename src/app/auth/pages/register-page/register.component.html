@@ -1,0 +1,36 @@
+<body>
+
+<form [formGroup]="myForm" class="form-container" action="">
+
+  <h1>Register</h1>
+
+  <div>
+    <label for="name">Nombre:</label>
+    <input formControlName="name" id="email" type="text">
+    <span class="error">Error</span>
+  </div>
+
+  <div>
+    <label for="email">Email:</label>
+    <input formControlName="email" id="email" type="text">
+    <span class="error">Error</span>
+  </div>
+
+  <div>
+    <label for="group">Grupo:</label>
+    <input formControlName="group" id="password" type="text">
+    <span class="error">Error</span>
+  </div>
+
+  <div>
+    <label for="password">Password:</label>
+    <input formControlName="password" id="password" type="text">
+    <span class="error">Error</span>
+  </div>
+
+  <button (click)="onSubmit()" type="button">Register</button>
+
+</form>
+
+
+</body>

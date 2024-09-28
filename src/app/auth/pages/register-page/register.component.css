@@ -1,0 +1,56 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Altura de la ventana */
+  margin: 0; /* Eliminar márgenes por defecto */
+  background-color: #f0f0f0; /* Color de fondo */
+}
+
+h1 {
+  text-align: center;
+  margin-top: 2px;
+}
+
+.form-container {
+  background-color: white; /* Color de fondo del formulario */
+  padding: 40px; /* Espaciado interno */
+  border-radius: 8px; /* Bordes redondeados */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra */
+  width: 40vw; /* Ancho del formulario */
+}
+
+label {
+  display: block; /* Hacer que las etiquetas ocupen toda la línea */
+  margin-bottom: 5px;/* Espacio entre etiqueta y campo */
+}
+
+input {
+  width: 100%; /* Ancho completo del contenedor */
+  padding: 10px; /* Espaciado interno del campo */
+  border: 1px solid #ccc; /* Borde del campo */
+  border-radius: 4px; /* Bordes redondeados en los campos */
+}
+
+div {
+  margin-bottom: 10px;
+}
+
+.error {
+  color: red; /* Color del texto de error */
+  font-size: 12px; /* Tamaño de fuente más pequeño para errores */
+}
+
+button {
+  width: 100%; /* Ancho completo del botón */
+  padding: 10px; /* Espaciado interno del botón */
+  background-color: #007bff; /* Color de fondo del botón */
+  color: white; /* Color del texto del botón */
+  border: none; /* Sin borde por defecto */
+  border-radius: 4px; /* Bordes redondeados en el botón */
+  cursor: pointer; /* Cambiar cursor al pasar sobre el botón */
+}
+
+button:hover {
+  background-color: #0056b3; /* Color más oscuro al pasar el mouse sobre el botón */
+}

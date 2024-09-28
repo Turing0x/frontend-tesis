@@ -6,7 +6,7 @@
         <h3>Descripción:</h3>
         <p>{{pend.description}}</p>
 
-        <a routerLink="exercise" >Detalles</a>
+        <a [routerLink]="['/exercise', pend._id]" >Detalles</a>
       </div>
   }
 </ul>

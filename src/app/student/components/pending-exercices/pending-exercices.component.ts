@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, inject, OnInit } from '@angular/core';
 import { Exercise } from '../../../interfaces/exercise.interface';
 import { StudentService } from '../../services/student.service';
 import { RouterLink, RouterOutlet } from '@angular/router';
@@ -18,6 +18,7 @@ import { RouterLink, RouterOutlet } from '@angular/router';
 export class PendingExercicesComponent implements OnInit {
 
   private studentService = inject(StudentService);
+  private chrf = inject(ChangeDetectorRef);
 
   public pendingExercises!: Exercise[];
 
@@ -25,7 +26,10 @@ export class PendingExercicesComponent implements OnInit {
 
     const user_id = localStorage.getItem("user_id");
     this.studentService.getPendingExercises(user_id!).subscribe(
-      value => this.pendingExercises = value
+      value => {
+        this.pendingExercises = value;
+        this.chrf.detectChanges();
+      }
     );
 
   }

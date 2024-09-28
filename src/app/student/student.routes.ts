@@ -1,12 +1,12 @@
 import { Routes } from "@angular/router";
-import { DashboardPageComponent } from "./pages/dashboard-page/dashboard-page.component";
 import { PendingExercicesComponent } from "./components/pending-exercices/pending-exercices.component";
 import { FinishedExercisesComponent } from "./components/finished-exercises/finished-exercises.component";
+import { PublicLayoutComponent } from "../layouts/public-layout/public-layout.component";
 
-export const routes: Routes = [
+export const StudentRoutes: Routes = [
   {
     path: '',
-    component: DashboardPageComponent,
+    component: PublicLayoutComponent,
     children: [
       {
         path: 'pending',
@@ -17,14 +17,9 @@ export const routes: Routes = [
         component: FinishedExercisesComponent,
       },
       {
-        path: '',
+        path: '**',
         redirectTo: 'pending',
-        pathMatch: 'full'
       }
     ]
   }
 ]
-
-
-
-export const StudentRoutes = routes;

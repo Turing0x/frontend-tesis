@@ -43,29 +43,25 @@ export class ExercisePageComponent implements OnInit{
     this.handleFilesUpload($inputFiles.files!);
   }
 
-  downloadTxtFile( folderName: string ) {
+  async downloadExcerciseFile() {
 
-    for(const { name, folder_name, data } of this.exercise.exercise_files_info) {
+    const ex_id = this.exercise._id;
 
-      console.log({ name, folder_name, data });
+    const response = await fetch(`http://localhost:8080/api/solutions/download/${ex_id}`);
 
-      if( folder_name === folderName ) {
-
-        const content = data.join('\n');
-        const blob = new Blob([content], { type: 'text/plain' });
-        const url = window.URL.createObjectURL(blob);
-
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = name;
-        document.body.appendChild(a);
-        a.click();
-
-        window.URL.revokeObjectURL(url);
-        document.body.removeChild(a);
-
-      }
+    if( !response.ok ) {
+      return;
     }
+
+    const blob = await response.blob();
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'ejercicio.rar';
+    document.body.appendChild(a);
+    a.click();
+    window.URL.revokeObjectURL(url);
+
   }
 
   handleFilesUpload(file: FileList) {

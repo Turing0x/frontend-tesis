@@ -13,37 +13,18 @@
   </section>
 
   <div class="download-buttons-container">
-    <button (click)="downloadTxtFile('bind')">
+    <button (click)="downloadExcerciseFile()">
       <i class="material-icons">download</i>
-      Descargar ficheros de 'bind'
+      Descargar ficheros del ejercicio
     </button>
 
-    <button (click)="downloadTxtFile('compartir')">
-      <i class="material-icons">download</i>
-      Descargar ficheros de 'compartir'
-    </button>
-
-    <button (click)="downloadTxtFile('confbasica')">
-      <i class="material-icons">download</i>
-      Descargar ficheros de 'confbasica'
-    </button>
-
-    <button (click)="downloadTxtFile('dhcp')">
-      <i class="material-icons">download</i>
-      Descargar ficheros de 'dhcp'
-    </button>
-
-    <button (click)="downloadTxtFile('http')">
-      <i class="material-icons">download</i>
-      Descargar de 'http'
-    </button>
   </div>
 
   <div>
     <input id="file-upload" type="file" accept=".rar">
     <button (click)="uploadFiles()">
       <i class="material-icons">upload_file</i>
-      Subir Solución
+      Subir solución
     </button>
   </div>
 

@@ -7,31 +7,39 @@
   <div>
     <label for="name">Nombre:</label>
     <input formControlName="name" id="email" type="text">
-    <span class="error">Error</span>
+    <!-- <span class="error">Error</span> -->
   </div>
 
   <div>
     <label for="email">Email:</label>
     <input formControlName="email" id="email" type="text">
-    <span class="error">Error</span>
+    <!-- <span class="error">Error</span> -->
   </div>
 
   <div>
     <label for="group">Grupo:</label>
     <input formControlName="group" id="password" type="text">
-    <span class="error">Error</span>
+    <!-- <span class="error">Error</span> -->
   </div>
 
   <div>
     <label for="password">Contraseña:</label>
     <input formControlName="password" id="password" type="text">
-    <span class="error">Error</span>
+    <!-- <span class="error">Error</span> -->
   </div>
 
   <button (click)="onSubmit()" type="button">
     <i class="material-icons">how_to_reg</i>
     Registrarse
   </button>
+
+  <hr>
+  <div class="login-part">
+    <span>¿Ya tienes cuenta?</span>
+    <a routerLink="/login">
+      <p>Login</p>
+    </a>
+  </div>
 
 </form>
 

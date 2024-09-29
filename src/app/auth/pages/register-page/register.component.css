@@ -9,12 +9,13 @@ body {
 
 h1 {
   text-align: center;
+  color: #535353;
   margin-top: 2px;
 }
 
 .form-container {
   background-color: white; /* Color de fondo del formulario */
-  padding: 40px; /* Espaciado interno */
+  padding: 20px 40px 20px 40px; /* Espaciado interno */
   border-radius: 8px; /* Bordes redondeados */
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra */
   width: 40vw; /* Ancho del formulario */
@@ -22,6 +23,7 @@ h1 {
 
 label {
   display: block; /* Hacer que las etiquetas ocupen toda la línea */
+  color: #888888;
   margin-bottom: 5px;/* Espacio entre etiqueta y campo */
 }
 
@@ -60,4 +62,39 @@ button:hover {
 
 i{
   margin-right: 8px;
+}
+hr{
+  border: 1px solid #efefef;
+  margin-top: 26px;
+  margin-bottom: 20px;
+}
+
+.login-part{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  margin-bottom: 0px;
+}
+
+a{
+  display:flex;
+  align-items: center;
+  justify-content: end;
+  text-decoration: none;
+  color: #007bff;
+  cursor: pointer;
+}
+
+p{
+  text-decoration: underline;
+}
+
+p:hover{
+  color: #0056b3;
+}
+
+span{
+  margin-right: 8px;
+  color: #c1c1c1;
 }

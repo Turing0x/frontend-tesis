@@ -7,22 +7,30 @@
     <div>
       <label for="email">Email:</label>
       <input formControlName="email" id="email" type="text">
-      <span class="error">Error</span>
+      <!-- <span class="error">Error</span> -->
     </div>
 
     <div>
       <label for="password">Contraseña:</label>
       <input formControlName="password" id="password" type="text">
-      <span class="error">Error</span>
+      <!-- <span class="error">Error</span> -->
     </div>
 
     <div style="display: flex; align-items: center; justify-content: center; width: 100%;">
-
       <button (click)="onSubmit()" type="button">
         <i class="material-icons">login</i>
         Log in
       </button>
     </div>
+
+    <hr>
+    <div class="register-part">
+      <span>¿No tienes cuenta?</span>
+      <a routerLink="/register">
+        <p>Registrate</p>
+      </a>
+    </div>
+
 
   </form>
 

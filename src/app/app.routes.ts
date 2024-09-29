@@ -1,5 +1,4 @@
 import { Routes } from '@angular/router';
-import { ExercisePageComponent } from './exercise/pages/exercise-page/exercise-page.component';
 
 export const routes: Routes = [
   {
@@ -12,7 +11,7 @@ export const routes: Routes = [
   },
   {
     path: 'exercise/:id',
-    component: ExercisePageComponent
+    loadChildren: () => import('./exercise/exercise.routes').then(m => m.ExerciseRoutes)
   },
   {
     path: '',

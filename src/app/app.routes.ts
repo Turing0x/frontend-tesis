@@ -14,6 +14,10 @@ export const routes: Routes = [
     loadChildren: () => import('./exercise/exercise.routes').then(m => m.ExerciseRoutes)
   },
   {
+    path: 'professor',
+    loadChildren: () => import('./professor/professor.routes').then(m => m.ProfessorRoutes)
+  },
+  {
     path: '',
     redirectTo: 'login',
     pathMatch: 'full'

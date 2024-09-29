@@ -1,0 +1,16 @@
+section{
+  display: flex;
+  height: 100vh;
+}
+
+.sidebar{
+  width: 20%;
+  background-color: #f4f4f4;
+}
+
+.content{
+  width: 80%; /* Contenido ocupa el 80% */
+  background-color: #fff; /* Color de fondo para el contenido */
+  padding-right: 10px; /* Espaciado interno */
+  overflow-y: auto;
+}

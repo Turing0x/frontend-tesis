@@ -49,7 +49,7 @@ export class LoginPageComponent implements OnInit{
           const [user] = response.data
 
           localStorage.setItem("user_id", user._id!);
-          this.router.navigate(['/student']);
+          this.redirectByRole(user.type);
 
         }else{
           console.log('Login failed', response.success);
@@ -60,6 +60,16 @@ export class LoginPageComponent implements OnInit{
         console.log(error);
       }
     )
+  }
+
+  redirectByRole( role: string ){
+
+    if ( role === 'professor' ){
+      this.router.navigate(['/professor']);
+    } else {
+      this.router.navigate(['/student']);
+    }
+
   }
 
  }

@@ -5,6 +5,20 @@ h2 {
   color: #333;
 }
 
+.download-buttons-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
 button {
   display: flex;
   align-items: center;
@@ -12,6 +26,8 @@ button {
   color: white;
   border: none;
   margin-bottom: 15px;
+  margin-right: 5px;
+  margin-left: 5px;
   padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
@@ -34,12 +50,6 @@ p{
   margin-bottom: 20px;
 }
 
-div{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
 
 section{
   padding: 40px;

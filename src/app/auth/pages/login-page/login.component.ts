@@ -45,6 +45,7 @@ export class LoginPageComponent implements OnInit{
     this.authService.login( email, password).subscribe(
       response => {
         if (response.success){
+
           const [user] = response.data
 
           localStorage.setItem("user_id", user._id!);

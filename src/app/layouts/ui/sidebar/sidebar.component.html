@@ -10,27 +10,25 @@
     <ul>
 
       <span>
-        <div>
+        <div routerLink="/student/pending">
           <li>
             <i class="material-icons">assignment</i>
-            <a href="/student/pending">Ejercicios Pendientes</a>
+            Ejercicios Pendientes
           </li>
         </div>
   
-        <div>
+        <div routerLink="/student/finished">
           <li>
             <i class="material-icons">assignment_turned_in</i>
-            <a href="/student/finished">Ejercicios Realizados</a>
+            Ejercicios Realizados
           </li>
         </div>
       </span>
 
-      <div>
+      <div (click)="onLogout()">
         <li>
           <i class="material-icons">logout</i>
-          <a (click)="onLogout()">
             Cerrar sesión
-          </a>
         </li>
       </div>
 

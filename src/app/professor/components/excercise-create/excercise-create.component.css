@@ -38,7 +38,7 @@ input[type="file"]:focus {
   outline: none; /* Sin contorno */
 }
 
-button {
+span {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -53,11 +53,11 @@ button {
   transition: background-color 0.3s; /* Transición suave para el color */
 }
 
-button:hover {
+span:hover {
   background-color: #45a049; /* Color al pasar el ratón */
 }
 
-button i{
+span i{
   margin-right: 6px;
 }
 

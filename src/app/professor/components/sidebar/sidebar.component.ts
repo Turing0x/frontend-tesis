@@ -13,6 +13,7 @@ export class SidebarComponent {
   private route = inject(Router);
 
   onLogout(){
+    localStorage.removeItem('user_id');
     this.route.navigate(['/login']);
   }
 

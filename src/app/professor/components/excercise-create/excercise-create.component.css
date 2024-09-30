@@ -34,7 +34,7 @@ input[type="file"] {
 
 input[type="text"]:focus,
 input[type="file"]:focus {
-  border-color: #66afe9; /* Color del borde al enfocar */
+  border-color: var(--primary-color); /* Color del borde al enfocar */
   outline: none; /* Sin contorno */
 }
 
@@ -42,9 +42,9 @@ button {
   display: flex;
   flex-direction: row;
   align-items: center;
-  background-color: #4CAF50; /* Color del botón */
+  background-color: var(--button-primary); /* Color del botón */
   margin-right: 12px;
-  color: white; /* Color del texto */
+  color: var(--text-color-white); /* Color del texto */
   padding: 10px 15px; /* Espaciado interno */
   border: none; /* Sin borde */
   border-radius: 4px; /* Bordes redondeados */
@@ -54,7 +54,7 @@ button {
 }
 
 button:hover {
-  background-color: #45a049; /* Color al pasar el ratón */
+  background-color: var(--button-primary-hover); /* Color al pasar el ratón */
 }
 
 button i{

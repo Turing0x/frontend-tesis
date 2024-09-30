@@ -9,13 +9,28 @@
   <nav>
     <ul>
 
-      <li>
-        <i class="material-icons">assignment</i>
-        <a href="/professor/excercises">Ejercicios</a>
-      <li>
-        <i class="material-icons">assignment_turned_in</i>
-        <a href="/professor/solutions">Soluciones</a>
-      </li>
+      <div>
+        <li>
+          <i class="material-icons">assignment</i>
+          <a href="/professor/excercises">Ejercicios</a>
+        </li>
+      </div>
+
+      <div>
+        <li>
+          <i class="material-icons">assignment_turned_in</i>
+          <a href="/professor/solutions">Soluciones</a>
+        </li>
+      </div>
+
+      <div>
+        <li>
+          <i class="material-icons">logout</i>
+          <a (click)="onLogout()">
+            Cerrar sesión
+          </a>
+        </li>
+      </div>
 
     </ul>
   </nav>

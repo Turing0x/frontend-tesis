@@ -39,7 +39,7 @@ div {
 }
 
 .error {
-  color: red; /* Color del texto de error */
+  color: var(--warn-color); /* Color del texto de error */
   font-size: 12px; /* Tamaño de fuente más pequeño para errores */
 }
 
@@ -50,7 +50,7 @@ button {
   width: 100%; /* Ancho completo del botón */
   margin-top: 22px;
   padding: 10px; /* Espaciado interno del botón */
-  background-color: #007bff; /* Color de fondo del botón */
+  background-color: var(--button-primary); /* Color de fondo del botón */
   color: white; /* Color del texto del botón */
   border: none; /* Sin borde por defecto */
   border-radius: 4px; /* Bordes redondeados en el botón */
@@ -58,7 +58,7 @@ button {
 }
 
 button:hover {
-  background-color: #0056b3; /* Color más oscuro al pasar el mouse sobre el botón */
+  background-color: var(--button-primary-hover); /* Color más oscuro al pasar el mouse sobre el botón */
 }
 
 i{

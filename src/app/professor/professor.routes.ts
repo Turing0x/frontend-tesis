@@ -19,7 +19,7 @@ export const routes: Routes = [
         component: SolutionsComponent
       },
       {
-        path: 'details',
+        path: 'details/:id',
         component: ExcersiceDetailComponent
       },
       {

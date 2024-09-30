@@ -2,13 +2,15 @@
 
   <ul>
 
-    <div class="card">
-      <span>Ejercicio:</span>
-      <h3>Descripción:</h3>
-      <p>descripcion breve</p>
+    @for (exce of list; track $index) {
+      <div class="card">
+        <span>Ejercicio:</span>
+        <h3>Descripción:</h3>
+        <p> {{ exce.description }} </p>
 
-      <a>Detalles</a>
-    </div>
+        <a [routerLink]="['/professor/details', exce._id]">Detalles</a>
+      </div>
+    }
 
   </ul>
 

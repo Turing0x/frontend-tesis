@@ -5,10 +5,10 @@
     <p> {{ exercise.description }} </p>
 
     <h2>Anotaciones:</h2>
-    @if (!exercise.anotations) {
+    @if (!exercise.annotations) {
       <p class="no-anotations" >No hay anotaciones</p>
     }@else {
-      <p class="anotations" > {{ exercise.anotations }} </p>
+      <p class="anotations" > {{ exercise.annotations }} </p>
     }
   </section>
 

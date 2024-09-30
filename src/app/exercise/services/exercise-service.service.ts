@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { catchError, map, Observable, tap, throwError } from 'rxjs';
+import { catchError, map, Observable, throwError } from 'rxjs';
 import Swal from 'sweetalert2';
 import { Exercise } from '../../interfaces/exercise.interface';
 
@@ -9,9 +9,8 @@ import { Exercise } from '../../interfaces/exercise.interface';
 })
 export class ExerciseService {
 
-  private url = 'http://localhost:8080/api/excercises';
-
   private http = inject(HttpClient);
+  private url = 'http://localhost:8080/api/excercises';
 
   private get httpHeaders() {
     return new HttpHeaders({
@@ -77,6 +76,21 @@ export class ExerciseService {
           return throwError(() => e)
         })
       );
+  }
+
+  createExcercise(data: FormData) {
+
+    return this.http.post<any>(this.url, data).pipe(
+      map( resp => resp.data ),
+      catchError(e => {
+        Swal.fire(
+          'Error Interno',
+          'Ha ocurrido algo grave. Contacte a soporte por favor',
+          'error'
+        )
+        return throwError(() => e)
+      })
+    );
   }
 
   editExercise(id: string, data: FormData){

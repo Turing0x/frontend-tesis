@@ -61,6 +61,11 @@ button i{
   margin-right: 6px;
 }
 
+.error {
+  color: var(--warn-color); /* Color del texto de error */
+  font-size: 12px; /* Tamaño de fuente más pequeño para errores */
+}
+
 .btn-container{
   display: flex;
   flex-direction: row;

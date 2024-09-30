@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'sidebar',
@@ -11,4 +12,12 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   styleUrl: './sidebar.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SidebarComponent { }
+export class SidebarComponent {
+
+  private route = inject(Router);
+
+  onLogout(){
+    this.route.navigate(['/login']);
+  }
+
+ }

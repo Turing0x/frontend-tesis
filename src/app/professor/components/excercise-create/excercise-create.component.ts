@@ -3,11 +3,14 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { ActivatedRoute } from '@angular/router';
 import { ExerciseService } from '../../../exercise/services/exercise-service.service';
 import { Exercise } from '../../../interfaces/exercise.interface';
+import { ValidatorService } from '../../../helpers/validators/validator.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-excercise-create',
   standalone: true,
   imports: [
+    CommonModule,
     ReactiveFormsModule
   ],
   templateUrl: './excercise-create.component.html',
@@ -16,7 +19,10 @@ import { Exercise } from '../../../interfaces/exercise.interface';
 export class ExcerciseCreateComponent implements OnInit {
 
   private fb = inject(FormBuilder);
+
   private exService = inject(ExerciseService);
+
+  private validatorService = inject(ValidatorService);
 
   myForm: FormGroup = this.fb.group({
     description: ['prueba', Validators.required],
@@ -25,6 +31,16 @@ export class ExcerciseCreateComponent implements OnInit {
 
   ngOnInit(): void {
     this.myForm.reset();
+  }
+
+  isValidField( field: string ): boolean | null {
+    return this.validatorService.isValidField( this.myForm, field );
+  }
+
+  noExcerciseFile(): boolean{
+    const ExcerciseFileInput = document.getElementById('exercise-files') as HTMLInputElement
+
+    return ExcerciseFileInput!.files!.length === 0;
   }
 
   onSave(){

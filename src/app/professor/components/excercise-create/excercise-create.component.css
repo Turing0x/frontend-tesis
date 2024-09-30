@@ -38,7 +38,7 @@ input[type="file"]:focus {
   outline: none; /* Sin contorno */
 }
 
-span {
+p {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -53,12 +53,17 @@ span {
   transition: background-color 0.3s; /* Transición suave para el color */
 }
 
+p i{
+  margin-right: 6px;
+}
+
 button:hover {
   background-color: var(--button-primary-hover); /* Color al pasar el ratón */
 }
 
-span i{
-  margin-right: 6px;
+.error {
+  color: var(--warn-color); /* Color del texto de error */
+  font-size: 12px; /* Tamaño de fuente más pequeño para errores */
 }
 
 .btn-container{

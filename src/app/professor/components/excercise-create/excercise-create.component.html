@@ -4,6 +4,7 @@
     <label for="description">Descripción del ejercicio:</label>
     <input
        formControlName="description" type="text" id="description" placeholder="Ingresa la descripción" required>
+    <span *ngIf="isValidField('description')" class="error">Descripción requerida</span>
   </div>
 
   <div class="form-group">
@@ -13,7 +14,8 @@
 
   <div class="form-group ">
     <label for="exercise-files">Ficheros del ejercicio:</label>
-    <input type="file" id="exercise-files">
+    <input (change)="noExcerciseFile()" type="file" id="exercise-files">
+    <span *ngIf="noExcerciseFile()" class="error">Archivo requerido</span>
   </div>
 
   <div class="form-group ">
@@ -22,10 +24,10 @@
   </div>
 
   <div class="btn-container" (click)="onSave()">
-    <span>
+    <p>
       <i class="material-icons">save</i>
       Guardar
-    </span>
+    </p>
   </div>
 
 </form>

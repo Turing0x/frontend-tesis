@@ -1,12 +1,11 @@
-import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'sidebar',
   standalone: true,
   imports: [
-    CommonModule,
+    RouterLink
   ],
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.css',
@@ -17,6 +16,7 @@ export class SidebarComponent {
   private route = inject(Router);
 
   onLogout(){
+    localStorage.removeItem('user_id');
     this.route.navigate(['/login']);
   }
 

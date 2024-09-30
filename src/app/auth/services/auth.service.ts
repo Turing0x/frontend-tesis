@@ -58,7 +58,6 @@ export class AuthService {
     return this.http.post<AuthResponse>(`${this.url}/signin`, {email, password}, {
       headers: this.httpHeaders
     }).pipe(
-      // map(response => response.data),
       catchError(e => {
         Swal.fire(
           'Error Interno',

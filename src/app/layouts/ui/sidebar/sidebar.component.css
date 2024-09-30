@@ -10,6 +10,17 @@ hr{
   width: 90%;
 }
 
+nav {
+  height: 100%;
+}
+
+ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
 aside {
   width: 100%;
   height: 100%;
@@ -41,6 +52,7 @@ aside li {
   align-items: center;
   justify-content: start;
   list-style: none;
+  gap: 10px;
 }
 
 aside a {

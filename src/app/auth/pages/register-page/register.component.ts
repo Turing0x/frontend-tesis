@@ -51,7 +51,6 @@ export class RegisterPageComponent {
 
     this.authService.createUser({ full_name, email, group, password, type }).subscribe(
       response => {
-        console.log(response);
         this.router.navigate(['/student']);
       },
       error => {

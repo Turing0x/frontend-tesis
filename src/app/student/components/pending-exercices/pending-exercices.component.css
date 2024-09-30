@@ -9,7 +9,7 @@ ul {
 
 a{
   margin-top: 5px;
-  background-color: #4CAF50; /* Green */
+  background-color: var(--button-primary); /* Green */
   border: none;
   color: white;
   padding: 8px 8px;
@@ -21,7 +21,7 @@ a{
 }
 
 a:hover {
-  background-color: #45a049;
+  background-color: var(--button-primary-hover);
   cursor: pointer;
 }
 

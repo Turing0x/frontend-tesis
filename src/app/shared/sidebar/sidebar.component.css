@@ -1,7 +1,7 @@
 header {
   text-align: start;
   margin: 10px 0px 10px 24px;
-  opacity: 0.8;
+  opacity: 1;
 }
 
 hr{
@@ -35,14 +35,17 @@ aside div{
   padding: 10px 10px 10px 10px;
   border-radius: 4px;
   transition: background-color 0.3s;
+  opacity: 0.7;
 }
 
 aside div:hover{
   background-color: var(--primary-accent-color);
   cursor: pointer;
+  opacity: 1;
 
   & i{
     color: var(--primary-color);
+    opacity: 1;
   }
 }
 
@@ -51,7 +54,7 @@ aside li {
   flex-direction: row;
   align-items: center;
   justify-content: start;
-  list-style: none; 
+  list-style: none;
   gap: 10px;
 }
 

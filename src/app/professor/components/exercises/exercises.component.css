@@ -9,7 +9,7 @@ ul {
 
 a{
   margin-top: 5px;
-  background-color: #4CAF50; /* Green */
+  background-color: var(--button-primary); /* Green */
   border: none;
   color: white;
   padding: 8px 8px;
@@ -21,7 +21,7 @@ a{
 }
 
 a:hover {
-  background-color: #45a049;
+  background-color: var(--button-primary-hover);
   cursor: pointer;
 }
 
@@ -30,7 +30,7 @@ a:hover {
   bottom: 20px; /* Distancia desde la parte inferior */
   right: 20px;
   padding: 5px 12px 5px 5px;
-  background-color: #4CAF50; /* Color de fondo */
+  background-color: var(--button-primary); /* Color de fondo */
   color: white; /* Color del icono */
   border: none; /* Sin borde */
   border-radius: 6px; /* Bordes redondeados para que sea circular */
@@ -43,7 +43,7 @@ a:hover {
 }
 
 .round-button:hover {
-  background-color: #45a049; /* Color al pasar el ratón */
+  background-color: var(--button-primary-hover); /* Color al pasar el ratón */
 }
 
 .round-button i{

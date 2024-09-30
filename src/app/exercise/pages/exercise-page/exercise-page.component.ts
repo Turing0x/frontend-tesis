@@ -3,14 +3,12 @@ import { ActivatedRoute } from '@angular/router';
 import { ExerciseService} from '../../services/exercise-service.service';
 import { Exercise } from '../../../interfaces/exercise.interface';
 import { CommonModule } from '@angular/common';
-import { SidebarComponent } from "../../../layouts/ui/sidebar/sidebar.component";
-import { FileInfo } from '../../../interfaces/file.interface';
-import { filesPaths } from '../../../helpers/files-paths';
+import { SidebarComponent } from '../../../shared/sidebar/sidebar.component';
 
 @Component({
   selector: 'app-exercise-page',
   standalone: true,
-  imports: [CommonModule, SidebarComponent],
+  imports: [CommonModule, SidebarComponent ],
   templateUrl: './exercise-page.component.html',
   styleUrl: './exercise-page.component.css'
 })

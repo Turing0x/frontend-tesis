@@ -1,12 +1,12 @@
 import { Routes } from "@angular/router";
 import { PendingExercicesComponent } from "./components/pending-exercices/pending-exercices.component";
 import { FinishedExercisesComponent } from "./components/finished-exercises/finished-exercises.component";
-import { PublicLayoutComponent } from "../layouts/public-layout/public-layout.component";
+import { HomePageComponent } from "./pages/home-page/home-page.component";
 
 export const StudentRoutes: Routes = [
   {
     path: '',
-    component: PublicLayoutComponent,
+    component: HomePageComponent,
     children: [
       {
         path: 'pending',

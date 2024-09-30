@@ -1,0 +1,71 @@
+<aside>
+
+  <header>
+    <h2>Menu</h2>
+  </header>
+
+  <hr>
+
+  <nav *ngIf="role === 'professor'" class="professor">
+    <ul>
+
+      <span>
+        <div routerLink="/professor/excercises">
+          <li>
+            <i class="material-icons">assignment</i>
+            Ejercicios
+          </li>
+        </div>
+
+        <div routerLink="/professor/solutions">
+          <li>
+            <i class="material-icons">assignment_turned_in</i>
+            Soluciones
+          </li>
+        </div>
+      </span>
+
+      <div (click)="onLogout()">
+        <li>
+          <i class="material-icons">logout</i>
+
+            Cerrar sesión
+
+        </li>
+      </div>
+
+    </ul>
+  </nav>
+
+  <nav *ngIf="role === 'student'" class="student">
+    <ul>
+
+      <span>
+        <div routerLink="/student/pending">
+          <li>
+            <i class="material-icons">assignment</i>
+            Ejercicios Pendientes
+          </li>
+        </div>
+
+        <div routerLink="/student/finished">
+          <li>
+            <i class="material-icons">assignment_turned_in</i>
+            Ejercicios Realizados
+          </li>
+        </div>
+      </span>
+
+      <div (click)="onLogout()">
+        <li>
+          <i class="material-icons">logout</i>
+            Cerrar sesión
+        </li>
+      </div>
+
+    </ul>
+  </nav>
+
+</aside>
+
+

@@ -56,6 +56,7 @@ export class LoginPageComponent implements OnInit{
           const [user] = response.data
 
           localStorage.setItem("user_id", user._id!);
+          localStorage.setItem("user_type", user.type);
           this.redirectByRole(user.type);
         }else{
           //TODO: snack bar Login Failed (email o contraseña incorrectos)

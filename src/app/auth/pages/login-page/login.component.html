@@ -6,14 +6,14 @@
 
     <div>
       <label for="email">Email:</label>
-      <input formControlName="email" id="email" type="text">
-      <!-- <span class="error">Error</span> -->
+      <input placeholder="nombre@ejemplo.com" formControlName="email" id="email" type="text">
+      <span *ngIf="isValidField('email')" class="error">Email invalido</span>
     </div>
 
     <div>
       <label for="password">Contraseña:</label>
       <input formControlName="password" id="password" type="text">
-      <!-- <span class="error">Error</span> -->
+      <!-- <span class="error"></span> -->
     </div>
 
     <div style="display: flex; align-items: center; justify-content: center; width: 100%;">

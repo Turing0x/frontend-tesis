@@ -3,6 +3,7 @@ import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } 
 import { AuthService } from '../../services/auth.service';
 import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
+import { ValidatorService } from '../../../helpers/validators/validator.service';
 
 @Component({
   selector: 'auth-register',
@@ -23,19 +24,25 @@ export class RegisterPageComponent {
 
   private fb = inject(FormBuilder);
 
+  private validatorService = inject(ValidatorService);
+
   public myForm!: FormGroup;
 
   ngOnInit(): void {
     this.myForm = this.fb.group({
-      name: new FormControl('', [ Validators.required ] ),
-      email: new FormControl('', [ Validators.required ] ),
-      group: new FormControl('', [ Validators.required ] ),
+      name: new FormControl('', [ Validators.required, Validators.pattern( this.validatorService.firstNameAndLastnamePattern ) ]),
+      email: new FormControl('', [ Validators.required, Validators.pattern( this.validatorService.emailPattern ) ]),
+      group: new FormControl('', [ Validators.required, Validators.minLength(4), Validators.maxLength(4) ] ),
       password: new FormControl('', [ Validators.required, Validators.minLength(8) ] ),
     });
   }
 
+  isValidField( field: string ): boolean | null {
+    return this.validatorService.isValidField( this.myForm, field );
+  }
 
   onSubmit() {
+    this.myForm.markAllAsTouched();
     if(this.myForm.invalid) {
       return;
     }

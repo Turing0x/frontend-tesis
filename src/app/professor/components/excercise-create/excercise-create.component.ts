@@ -13,7 +13,7 @@ import { Exercise } from '../../../interfaces/exercise.interface';
   templateUrl: './excercise-create.component.html',
   styleUrl: './excercise-create.component.css'
 })
-export class ExcerciseCreateComponent{
+export class ExcerciseCreateComponent implements OnInit {
 
   private fb = inject(FormBuilder);
   private exService = inject(ExerciseService);
@@ -22,6 +22,10 @@ export class ExcerciseCreateComponent{
     description: ['prueba', Validators.required],
     annotations: ['prueba'],
   })
+
+  ngOnInit(): void {
+    this.myForm.reset();
+  }
 
   onSave(){
 

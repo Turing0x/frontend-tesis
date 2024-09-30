@@ -4,6 +4,7 @@ import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/cor
 import { AuthService } from '../../services/auth.service';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
+import { ValidatorService } from '../../../helpers/validators/validator.service';
 
 @Component({
   selector: 'auth-login',
@@ -25,17 +26,23 @@ export class LoginPageComponent implements OnInit{
 
   private router = inject(Router);
 
+  private validatorService = inject(ValidatorService);
+
   public myForm!: FormGroup;
 
   ngOnInit(): void {
     this.myForm = this.fb.group({
-      email: new FormControl('', [ Validators.required ] ),
+      email: new FormControl('', [ Validators.required, Validators.pattern( this.validatorService.emailPattern ) ] ),
       password: new FormControl('', [ Validators.required, Validators.minLength(8) ] ),
     });
   }
 
+  isValidField( field: string ): boolean | null {
+    return this.validatorService.isValidField( this.myForm, field );
+  }
 
   onSubmit() {
+    this.myForm.markAllAsTouched();
     if(this.myForm.invalid) {
       return;
     }
@@ -50,8 +57,8 @@ export class LoginPageComponent implements OnInit{
 
           localStorage.setItem("user_id", user._id!);
           this.redirectByRole(user.type);
-
         }else{
+          //TODO: snack bar Login Failed (email o contraseña incorrectos)
           console.log('Login failed', response.success);
         }
 

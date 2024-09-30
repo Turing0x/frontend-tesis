@@ -5,27 +5,27 @@
   <h1>Registro</h1>
 
   <div>
-    <label for="name">Nombre:</label>
-    <input formControlName="name" id="email" type="text">
-    <!-- <span class="error">Error</span> -->
+    <label for="name">Nombre y Apellido:</label>
+    <input placeholder="Nombre Apellido" formControlName="name" id="email" type="text">
+    <span *ngIf="isValidField('name')" class="error">Debe ser formato "Nombre Apellido"</span>
   </div>
 
   <div>
     <label for="email">Email:</label>
-    <input formControlName="email" id="email" type="text">
-    <!-- <span class="error">Error</span> -->
+    <input placeholder="nombre@ejemplo.com" formControlName="email" id="email" type="text">
+    <span *ngIf="isValidField('email')" class="error">Email invalido</span>
   </div>
 
   <div>
     <label for="group">Grupo:</label>
     <input formControlName="group" id="password" type="text">
-    <!-- <span class="error">Error</span> -->
+    <span  *ngIf="isValidField('group')" class="error">Grupo invalido</span>
   </div>
 
   <div>
     <label for="password">Contraseña:</label>
     <input formControlName="password" id="password" type="text">
-    <!-- <span class="error">Error</span> -->
+    <span *ngIf="isValidField('password')" class="error">Debe tener al menos 8 caracteres</span>
   </div>
 
   <button (click)="onSubmit()" type="button">

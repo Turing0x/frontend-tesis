@@ -37,7 +37,7 @@ a:hover {
   display: flex; /* Usar flexbox para centrar el contenido */
   align-items: center; /* Centrar verticalmente */
   justify-content: center; /* Centrar horizontalmente */
-  font-size: 24px; /* Tamaño del icono */
+  font-size: 20px; /* Tamaño del icono */
   cursor: pointer; /* Cambiar el cursor al pasar el ratón */
   transition: background-color 0.3s; /* Transición suave para el color */
 }

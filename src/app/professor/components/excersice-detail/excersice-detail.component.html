@@ -1,0 +1,38 @@
+<!-- @if (exercise) { -->
+<!-- }
+ -->
+ <form [formGroup]="myForm" (ngSubmit)="onSave()" class="exercise-form">
+  <div class="form-group">
+    <label for="description">Descripción del ejercicio:</label>
+    <input readonly formControlName="description" type="text" id="description" placeholder="Ingresa la descripción" required>
+  </div>
+
+  <div class="form-group">
+    <label for="annotations">Anotaciones:</label>
+    <input readonly formControlName="annotations" type="text" id="annotations" placeholder="Ingresa anotaciones">
+  </div>
+
+  <div class=" to-hide form-group hidden">
+    <label for="exercise-files">Ficheros del ejercicio:</label>
+    <input type="file" id="exercise-files">
+  </div>
+
+  <div class=" to-hide form-group hidden">
+    <label for="solution-files">Posible solución:</label>
+    <input type="file" id="solution-files">
+  </div>
+
+  <div class="btn-container">
+    <button class=" to-hide hidden" type="submit">
+      <!-- <i class="material-icons">save</i> -->
+      Guardar
+    </button>
+    <button id="edit-btn" type="button" (click)="onEdit()">
+      <!-- <i class="material-icons">edit</i> -->
+      Editar
+    </button>
+  </div>
+
+</form>
+
+

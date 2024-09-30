@@ -3,6 +3,7 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 import { ExercisePageComponent } from '../exercise/pages/exercise-page/exercise-page.component';
 import { ExercisesComponent } from './components/exercises/exercises.component';
 import { SolutionsComponent } from './components/solutions/solutions.component';
+import { ExcersiceDetailComponent } from './components/excersice-detail/excersice-detail.component';
 
 export const routes: Routes = [
   {
@@ -16,6 +17,10 @@ export const routes: Routes = [
       {
         path: 'solutions',
         component: SolutionsComponent
+      },
+      {
+        path: 'details',
+        component: ExcersiceDetailComponent
       },
       {
         path: '',

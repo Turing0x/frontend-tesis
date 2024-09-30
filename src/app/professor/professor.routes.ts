@@ -4,6 +4,7 @@ import { ExercisePageComponent } from '../exercise/pages/exercise-page/exercise-
 import { ExercisesComponent } from './components/exercises/exercises.component';
 import { SolutionsComponent } from './components/solutions/solutions.component';
 import { ExcersiceDetailComponent } from './components/excersice-detail/excersice-detail.component';
+import { ExcerciseCreateComponent } from './components/excercise-create/excercise-create.component';
 
 export const routes: Routes = [
   {
@@ -21,6 +22,10 @@ export const routes: Routes = [
       {
         path: 'details/:id',
         component: ExcersiceDetailComponent
+      },
+      {
+        path: 'create',
+        component: ExcerciseCreateComponent
       },
       {
         path: '',

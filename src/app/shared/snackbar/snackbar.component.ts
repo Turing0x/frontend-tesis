@@ -16,11 +16,7 @@ export class SnackbarComponent {
   @Input() description!: string;
   @Input() type!: 'success' | 'error';
 
-  public show = false
-
   public timeoutId: any;
-  el: any;
-  renderer: any;
 
   snackbarColor(){
     if( this.type === 'success' ){
@@ -31,8 +27,6 @@ export class SnackbarComponent {
   }
 
   closeSnackbar(){
-    // this.show = false;
-
     const snackbarElement = document.getElementById('snackbar');
 
     snackbarElement!.style.opacity = '0';
@@ -48,15 +42,11 @@ export class SnackbarComponent {
     this.description = description;
     this.type = type;
 
-    // this.show = true;
-
     const snackbarElement = document.getElementById('snackbar');
 
-    // Hacer visible el snackbar
     snackbarElement!.style.opacity = '1';
 
     this.timeoutId = setTimeout(() => {
-      // this.show = false;
       snackbarElement!.style.opacity = '0';
     }, 2500);
   }

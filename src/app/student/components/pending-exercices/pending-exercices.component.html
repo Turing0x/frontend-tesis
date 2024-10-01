@@ -1,15 +1,21 @@
 @if(!pendingExercises){
-  <p>No hay ejercicios pendientes</p>
-}@else {
-  <ul>
-    @for(pend of pendingExercises; track $index) {
-        <div class="card">
-          <span>Ejercicio:</span>
-          <h3>Descripción:</h3>
-          <p>{{pend.description}}</p>
 
-          <a [routerLink]="['/exercise', pend._id]" >Detalles</a>
-        </div>
-    }
+  <p>No hay ejercicios pendientes</p>
+
+}@else {
+
+  <h1>Ejercicios pendientes</h1>
+
+  <ul>
+
+    @for(pend of pendingExercises; track $index) {
+      <shared-card
+        [title]="'Ejercicio'"
+        [description]="pend.description"
+        [link]="'/exercise'"
+        [param]="pend._id"
+      ></shared-card>
+  }
+
   </ul>
 }

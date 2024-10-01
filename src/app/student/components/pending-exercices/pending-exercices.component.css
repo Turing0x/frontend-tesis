@@ -2,55 +2,15 @@ ul {
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* Tres columnas */
   gap: 20px;
-  padding: 20px;
+  padding: 20px; /* Limita a 3 filas de 300px de altura cada una, con 20px de gap entre filas */
   max-height: calc(3 * 300px + 2 * 20px); /* Limita a 3 filas de 300px de altura cada una, con 20px de gap entre filas */
   overflow-y: auto; /* Permite desplazamiento vertical si hay más de 3 filas */
 }
 
-a{
-  margin-top: 5px;
-  background-color: var(--button-primary); /* Green */
-  border: none;
-  color: white;
-  padding: 8px 8px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  border-radius: 4px;
-}
-
-a:hover {
-  background-color: var(--button-primary-hover);
-  cursor: pointer;
-}
-
-.card {
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  box-sizing: border-box;
-  transition: transform 0.2s;
-}
-
-.card h2 {
-  margin-top: 0;
-}
-
-.card p {
-  margin-bottom: 0;
-}
-
-@media (max-width: 768px) {
-  .card-container {
-    grid-template-columns: repeat(2, 1fr); /* Dos columnas en pantallas medianas */
-  }
-}
-
-@media (max-width: 480px) {
-  .card-container {
-    grid-template-columns: 1fr; /* Una columna en pantallas pequeñas */
-  }
+h1{
+  margin-left: 24px;
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--text-color-primary);
+  width: 100%;
 }

@@ -3,6 +3,7 @@ import { ChangeDetectorRef, Component, inject, OnInit } from '@angular/core';
 import { Exercise } from '../../../interfaces/exercise.interface';
 import { StudentService } from '../../services/student.service';
 import { RouterLink, RouterOutlet } from '@angular/router';
+import { CardComponent } from '../../../shared/card/card.component';
 
 @Component({
   selector: 'student-pending-exercices',
@@ -10,7 +11,8 @@ import { RouterLink, RouterOutlet } from '@angular/router';
   imports: [
     CommonModule,
     RouterLink,
-    RouterOutlet
+    RouterOutlet,
+    CardComponent
   ],
   templateUrl: './pending-exercices.component.html',
   styleUrl: './pending-exercices.component.css'

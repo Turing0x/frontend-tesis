@@ -38,6 +38,10 @@ aside div{
   opacity: 0.7;
 }
 
+aside i{
+  transition: color 0.3s;
+}
+
 aside div:hover{
   background-color: var(--primary-accent-color);
   cursor: pointer;

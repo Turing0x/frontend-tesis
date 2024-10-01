@@ -1,0 +1,48 @@
+ul {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Tres columnas */
+  gap: 20px;
+  padding: 20px;
+  max-height: calc(3 * 300px + 2 * 20px); /* Limita a 3 filas de 300px de altura cada una, con 20px de gap entre filas */
+  overflow-y: auto; /* Permite desplazamiento vertical si hay más de 3 filas */
+}
+
+h3{
+  font-size: 18px;
+}
+
+p{
+  margin-top: 4px;
+  margin-bottom: 4px;
+  font-size: 14px;
+  color: var(--text-color-secondary);
+}
+
+div {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  box-sizing: border-box;
+  transition: transform 0.2s;
+}
+
+a{
+  margin-top: 5px;
+  background-color: var(--button-primary); /* Green */
+  border: none;
+  color: white;
+  padding: 8px 8px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 4px;
+}
+
+a:hover {
+  background-color: var(--button-primary-hover);
+  cursor: pointer;
+}
+

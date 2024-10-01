@@ -1,15 +1,15 @@
 <div class="excersise-container">
 
+  <h1>Ejercicios</h1>
+
   <ul>
-
     @for (exce of list; track $index) {
-      <div class="card">
-        <span>Ejercicio:</span>
-        <h3>Descripción:</h3>
-        <p> {{ exce.description }} </p>
-
-        <a [routerLink]="['/professor/details', exce._id]">Detalles</a>
-      </div>
+      <shared-card
+        [title]="'Ejercicio'"
+        [description]="exce.description"
+        [link]="'/professor/details'"
+        [param]="exce._id"
+      ></shared-card>
     }
 
   </ul>

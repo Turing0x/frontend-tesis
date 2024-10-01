@@ -13,4 +13,5 @@ section{
   background-color: #fff; /* Color de fondo para el contenido */
   padding-right: 10px; /* Espaciado interno */
   overflow-y: auto;
+  overflow: hidden;
 }

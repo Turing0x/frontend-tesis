@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
-import { RouterModule, RouterOutlet } from '@angular/router';
+import { Component, inject } from '@angular/core';
+import { Router, RouterModule, RouterOutlet } from '@angular/router';
 import { SidebarComponent } from "./layouts/ui/sidebar/sidebar.component";
+import { AuthService } from './auth/services/auth.service';
+import { AuthStatus } from './interfaces/auth.status.enum';
 
 @Component({
   selector: 'app-root',
@@ -15,4 +17,16 @@ import { SidebarComponent } from "./layouts/ui/sidebar/sidebar.component";
 })
 export class AppComponent {
   title = 'frontendTesis';
+
+  private authService = inject(AuthService);
+  private router = inject(Router);
+
+  // constructor() {
+  //   if (this.authService.authStatus() === AuthStatus.notAuthenticated) {
+  //     const lastPath = localStorage.getItem('last_path');
+  //     if (lastPath) {
+  //       this.router.navigate([lastPath]);
+  //     }
+  //   }
+  // }
 }

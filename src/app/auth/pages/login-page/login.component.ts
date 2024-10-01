@@ -32,8 +32,8 @@ export class LoginPageComponent implements OnInit{
 
   ngOnInit(): void {
     this.myForm = this.fb.group({
-      email: new FormControl('', [ Validators.required, Validators.pattern( this.validatorService.emailPattern ) ] ),
-      password: new FormControl('', [ Validators.required, Validators.minLength(8) ] ),
+      email: new FormControl('raul@mail.com', [ Validators.required, Validators.pattern( this.validatorService.emailPattern ) ] ),
+      password: new FormControl('87654321', [ Validators.required, Validators.minLength(8) ] ),
     });
   }
 
@@ -73,8 +73,10 @@ export class LoginPageComponent implements OnInit{
 
     if ( role === 'professor' ){
       this.router.navigate(['/professor']);
+      localStorage.setItem('last_path', 'professor');
     } else {
       this.router.navigate(['/student']);
+      localStorage.setItem('last_path', 'student');
     }
 
   }

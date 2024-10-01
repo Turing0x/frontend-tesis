@@ -1,5 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
+import { AuthService } from '../../../auth/services/auth.service';
 
 @Component({
   selector: 'professor-sidebar',
@@ -10,11 +11,12 @@ import { Router, RouterLink } from '@angular/router';
 })
 export class SidebarComponent {
 
-  private route = inject(Router);
+  private authService = inject(AuthService);
+  private router = inject(Router);
 
-  onLogout(){
-    localStorage.removeItem('user_id');
-    this.route.navigate(['/login']);
+  public onLogout() {
+    this.authService.logout();
+    this.router.navigate(['/login']);
   }
 
 }

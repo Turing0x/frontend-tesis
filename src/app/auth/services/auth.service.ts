@@ -1,11 +1,11 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { inject, Injectable } from '@angular/core';
+import { computed, inject, Injectable, signal } from '@angular/core';
 import { Environments } from '../../environment/environment';
-import { catchError, map, Observable, throwError } from 'rxjs';
+import { catchError, map, Observable, of, tap, throwError } from 'rxjs';
 import Swal from 'sweetalert2';
 import { User } from '../../interfaces/user.interface';
 import { AuthResponse } from '../interfaces/auth_response.interface';
-import { Exercise } from '../../interfaces/exercise.interface';
+import { AuthStatus } from '../../interfaces/auth.status.enum';
 
 @Injectable({
   providedIn: 'root'
@@ -14,12 +14,25 @@ export class AuthService {
 
   private http = inject(HttpClient);
 
+  private _authStatus = signal<AuthStatus>( AuthStatus.notAuthenticated );
+  public authStatus = computed(() => this._authStatus())
+
   private url = `${Environments.base_url}/users`;
+
+  constructor() {
+    this.checkAuthStatus().subscribe();
+  }
 
   private get httpHeaders() {
     return new HttpHeaders({
       'Content-Type': 'application/json'
     });
+  }
+
+  logout() {
+    localStorage.removeItem('last_path');
+    localStorage.removeItem('user_id');
+    this._authStatus.set(AuthStatus.notAuthenticated);
   }
 
   getAllUsers(): Observable<User[]>{
@@ -58,6 +71,11 @@ export class AuthService {
     return this.http.post<AuthResponse>(`${this.url}/signin`, {email, password}, {
       headers: this.httpHeaders
     }).pipe(
+      tap( resp => {
+        if( resp.success ) {
+          this._authStatus.set(AuthStatus.authenticated);
+        }
+      }), 
       catchError(e => {
         Swal.fire(
           'Error Interno',
@@ -67,6 +85,20 @@ export class AuthService {
         return throwError(() => e)
       })
     );
+  }
+
+  checkAuthStatus(): Observable<boolean> {
+    const user_id = localStorage.getItem('user_id');
+
+    if (!user_id) {
+      this._authStatus.set(AuthStatus.notAuthenticated);
+      this.logout();
+      return of(false);
+    }
+    
+    this._authStatus.set(AuthStatus.authenticated);
+    return of(true);
+
   }
 
 }

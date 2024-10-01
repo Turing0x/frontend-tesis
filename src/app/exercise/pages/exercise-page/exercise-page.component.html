@@ -12,20 +12,25 @@
     }
   </section>
 
-  <div class="download-buttons-container">
-    <button (click)="downloadExcerciseFile()">
-      <i class="material-icons">download</i>
-      Descargar ficheros del ejercicio
-    </button>
+  <div class="actions">
 
-  </div>
+    <div class="download-buttons-container">
+      <button (click)="downloadExcerciseFile()">
+        <i class="material-icons">download</i>
+        Descargar ficheros del ejercicio
+      </button>
 
-  <div class="upload-buttons-container">
-    <input id="file-upload" type="file" accept=".rar">
-    <button (click)="uploadFiles()">
-      <i class="material-icons">upload_file</i>
-      Subir solución
-    </button>
+    </div>
+
+    <div class="upload-buttons-container">
+      <h2>Subir tu solución</h2>
+      <input id="file-upload" type="file" accept=".rar">
+      <button (click)="uploadFiles()">
+        <i class="material-icons">upload_file</i>
+        Subir solución
+      </button>
+    </div>
+
   </div>
 
 }

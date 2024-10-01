@@ -4,7 +4,7 @@ import { SidebarComponent } from '../../../shared/sidebar/sidebar.component';
 
 
 @Component({
-  selector: 'student-home-page',
+  selector: 'professor-home-page',
   standalone: true,
   imports: [
     RouterModule,

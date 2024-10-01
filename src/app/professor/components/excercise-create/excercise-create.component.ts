@@ -71,12 +71,12 @@ export class ExcerciseCreateComponent implements OnInit {
 
     Swal.fire({
       title: '¿Estás seguro?',
-      text: 'Esta seguro que deseas guardar el ejercicio?',
+      text: 'Está seguro que deseas guardar el ejercicio?',
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Si, guardar'
+      confirmButtonText: 'Sí, guardar'
     }).then((result) => {
       if (result.isConfirmed) {
         this.exService.createExcercise( formData ).subscribe(

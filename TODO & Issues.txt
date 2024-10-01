@@ -14,7 +14,7 @@ TODO list:
   Como manejamos eso? si ese ejercicio tiene una solucion de este estudiante
   lo quitamos de pending y lo mandamos pa finished?
 
-- Pop ups para cuando se crea un ejercicio exitosamente o cuando falla y otras cosas.
+- Snackbars para cuando se crea un ejercicio exitosamente o cuando falla y otras cosas.
 
 - 404 page.
 
@@ -27,4 +27,4 @@ Issues:
 - Cuando el profesor edita un ejercicio que tiene un archivo no sale
   ese archivo en el input de exercise_files.
 
-- No hay feedback al crear, editar nada. (Pop ups).
+- No hay feedback al crear, editar nada. (Snackbars).

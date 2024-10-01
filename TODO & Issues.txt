@@ -22,9 +22,6 @@ TODO list:
 
 Issues:
 
-- !!! IMPORTANTE: Cuando se registra un usuario sale sin type (rol),
-  por tanto sale el sidebar vacio.
-
 - !!! IMPORTANTE: Cuando el prof crea un ejercicio no se le añade al usuario
 
 - Cuando el profesor edita un ejercicio que tiene un archivo no sale

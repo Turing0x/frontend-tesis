@@ -47,10 +47,14 @@ export class RegisterPageComponent {
       return;
     }
 
-    const { full_name, email, group, password, type } = this.myForm.value;
+    const { full_name, email, group, password } = this.myForm.value;
+
+    const type = 'student';
 
     this.authService.createUser({ full_name, email, group, password, type }).subscribe(
       response => {
+        localStorage.setItem('user_type', type);
+        localStorage.setItem('user_id', response._id!);
         this.router.navigate(['/student']);
       },
       error => {

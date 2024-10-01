@@ -31,7 +31,11 @@ export class SnackbarComponent {
   }
 
   closeSnackbar(){
-    this.show = false;
+    // this.show = false;
+
+    const snackbarElement = document.getElementById('snackbar');
+
+    snackbarElement!.style.opacity = '0';
 
     if (this.timeoutId) {
       clearTimeout(this.timeoutId);
@@ -44,10 +48,16 @@ export class SnackbarComponent {
     this.description = description;
     this.type = type;
 
-    this.show = true;
+    // this.show = true;
+
+    const snackbarElement = document.getElementById('snackbar');
+
+    // Hacer visible el snackbar
+    snackbarElement!.style.opacity = '1';
 
     this.timeoutId = setTimeout(() => {
-      this.show = false;
+      // this.show = false;
+      snackbarElement!.style.opacity = '0';
     }, 2500);
   }
 

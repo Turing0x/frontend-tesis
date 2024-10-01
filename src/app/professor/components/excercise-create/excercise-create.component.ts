@@ -48,13 +48,8 @@ export class ExcerciseCreateComponent implements OnInit {
 
     const excFiles = document.getElementById('exercise-files') as HTMLInputElement;
     console.log(this.myForm.invalid);
-    if( this.myForm.invalid || !excFiles || excFiles.files?.length === 0 ){
-      Swal.fire({
-        title: 'Error',
-        text: 'Ingresa todos los campos',
-        icon: 'error',
-        confirmButtonText: 'Aceptar'
-      });
+    if( this.myForm.invalid || !excFiles || excFiles.files?.length === 0 ) {
+      this.myForm.markAllAsTouched();
       return;
     }
 

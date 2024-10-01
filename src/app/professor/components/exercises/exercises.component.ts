@@ -1,20 +1,24 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, ViewChild } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { ExerciseService } from '../../../exercise/services/exercise-service.service';
 import { Exercise } from '../../../interfaces/exercise.interface';
 import { CardComponent } from '../../../shared/card/card.component';
+import { SnackbarComponent } from '../../../shared/snackbar/snackbar.component';
 
 @Component({
   selector: 'app-exercises',
   standalone: true,
   imports: [
     RouterLink,
-    CardComponent
+    CardComponent,
+    SnackbarComponent
   ],
   templateUrl: './exercises.component.html',
   styleUrl: './exercises.component.css'
 })
 export class ExercisesComponent implements OnInit{
+
+  @ViewChild(SnackbarComponent) snackbar!: SnackbarComponent;
 
   private exService = inject(ExerciseService);
 
@@ -24,6 +28,10 @@ export class ExercisesComponent implements OnInit{
     this.exService.getAllExcercises().subscribe(
       data => this.list = data
     )
+  }
+
+  showSB(){
+    this.snackbar.showSnackbar('Funciona', 'Todo ha funcionado bien', 'success');
   }
 
 }

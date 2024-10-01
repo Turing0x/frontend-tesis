@@ -1,0 +1,29 @@
+<div *ngIf="show" class="snackbar">
+
+  <div class="txt">
+
+    <div class="line" [ngStyle]="{ 'background-color': snackbarColor() }" ></div>
+
+    <i class="material-icons"
+      *ngIf="type === 'success'"
+      [ngStyle]="{ 'color': snackbarColor() }"
+    >check_circle</i>
+
+    <i class="material-icons"
+    *ngIf="type === 'error'"
+    [ngStyle]="{ 'color': snackbarColor() }"
+    >error</i>
+
+    <div>
+      <span> {{ title }} </span>
+      <p> {{ description }} </p>
+    </div>
+
+  </div>
+
+  <div class="close-container">
+    <i (click)="closeSnackbar()" class="material-symbols-rounded">close</i>
+  </div>
+
+
+</div>

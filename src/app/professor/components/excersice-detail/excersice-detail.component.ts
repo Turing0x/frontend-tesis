@@ -5,6 +5,7 @@ import { ExerciseService } from '../../../exercise/services/exercise-service.ser
 import { Exercise } from '../../../interfaces/exercise.interface';
 import { ValidatorService } from '../../../helpers/validators/validator.service';
 import { CommonModule } from '@angular/common';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-excersice-detail',
@@ -67,12 +68,26 @@ export class ExcersiceDetailComponent implements OnInit {
       formData.append('annotations', annotationsValue);
       formData.append('file', excFiles.files![0]);
 
-      // formData.append('solutionFiles', solutionFiles.files![0]);
-
 
       this.exService.editExercise( id, formData ).subscribe(
         () => {
-          console.log('Editado');
+          Swal.fire({
+            title: '¿Estás seguro?',
+            text: 'Está seguro que deseas guardar el ejercicio?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Sí, guardar'
+          }).then((result) => {
+            if (result.isConfirmed) {
+              this.exService.createExcercise( formData ).subscribe(
+                () => {
+                  console.log('create');
+                }
+              );
+            }
+          });
         }
       );
       console.log('Save');

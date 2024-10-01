@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, inject, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, inject, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { ExerciseService } from '../../../exercise/services/exercise-service.service';
@@ -6,18 +6,22 @@ import { Exercise } from '../../../interfaces/exercise.interface';
 import { ValidatorService } from '../../../helpers/validators/validator.service';
 import { CommonModule } from '@angular/common';
 import Swal from 'sweetalert2';
+import { SnackbarComponent } from "../../../shared/snackbar/snackbar.component";
 
 @Component({
   selector: 'app-excersice-detail',
   standalone: true,
   imports: [
     CommonModule,
-    ReactiveFormsModule
-  ],
+    ReactiveFormsModule,
+    SnackbarComponent
+],
   templateUrl: './excersice-detail.component.html',
   styleUrl: './excersice-detail.component.css'
 })
 export class ExcersiceDetailComponent implements OnInit {
+
+  @ViewChild(SnackbarComponent) snackbar!: SnackbarComponent;
 
   private fb = inject(FormBuilder);
   private activatedRouter = inject(ActivatedRoute);
@@ -73,7 +77,7 @@ export class ExcersiceDetailComponent implements OnInit {
         () => {
           Swal.fire({
             title: '¿Estás seguro?',
-            text: 'Está seguro que deseas guardar el ejercicio?',
+            text: 'Está seguro que deseas editar el ejercicio?',
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
@@ -81,9 +85,10 @@ export class ExcersiceDetailComponent implements OnInit {
             confirmButtonText: 'Sí, guardar'
           }).then((result) => {
             if (result.isConfirmed) {
-              this.exService.createExcercise( formData ).subscribe(
+              this.exService.editExercise( id, formData ).subscribe(
                 () => {
                   console.log('create');
+                  this.snackbar.showSnackbar('Ejercicio editado', 'El ejercicio ha sido editado exitosamente', 'success');
                 }
               );
             }

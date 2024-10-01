@@ -65,3 +65,6 @@ p{
   cursor: pointer;
 }
 
+.close-container i:hover{
+  color: var(--warn-color);
+}

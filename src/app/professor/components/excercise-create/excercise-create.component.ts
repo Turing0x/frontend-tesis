@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, inject, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, inject, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { ExerciseService } from '../../../exercise/services/exercise-service.service';
@@ -6,18 +6,22 @@ import { Exercise } from '../../../interfaces/exercise.interface';
 import { ValidatorService } from '../../../helpers/validators/validator.service';
 import { CommonModule } from '@angular/common';
 import Swal from 'sweetalert2';
+import { SnackbarComponent } from "../../../shared/snackbar/snackbar.component";
 
 @Component({
   selector: 'app-excercise-create',
   standalone: true,
   imports: [
     CommonModule,
-    ReactiveFormsModule
-  ],
+    ReactiveFormsModule,
+    SnackbarComponent
+],
   templateUrl: './excercise-create.component.html',
   styleUrl: './excercise-create.component.css'
 })
 export class ExcerciseCreateComponent implements OnInit {
+
+  @ViewChild(SnackbarComponent) snackbar!: SnackbarComponent;
 
   private fb = inject(FormBuilder);
 
@@ -77,6 +81,8 @@ export class ExcerciseCreateComponent implements OnInit {
         this.exService.createExcercise( formData ).subscribe(
           () => {
             console.log('create');
+            this.snackbar.showSnackbar('Ejercicio creado', 'El ejercicio ha sido creado exitosamente', 'success');
+            this.myForm.reset();
           }
         );
       }

@@ -18,6 +18,10 @@ TODO list:
 
 - 404 page.
 
+- Boton eliminar ejercicio.
+
+- Paginacion en las paginas de ejercicios y soluciones.
+
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 Issues:

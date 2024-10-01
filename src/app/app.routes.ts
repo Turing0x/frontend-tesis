@@ -19,7 +19,16 @@ export const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'login',
+    redirectTo: () => {
+      const lastPath = localStorage.getItem('last_path');
+
+      console.log('lastPath', lastPath);
+      if (lastPath) {
+        return lastPath;
+      }
+
+      return '/login';
+    },
     pathMatch: 'full'
   },
 ];

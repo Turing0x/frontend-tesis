@@ -28,19 +28,11 @@ export class SolutionsComponent implements OnInit {
     )
   }
 
-  getSoulution(id: string){
-    this.solutionService.getSolution(id).subscribe(
-      data => console.log(data)
-    )
-  }
-
   calificationColor( calif: number ){
 
-    const solution = calif;
-
-    if(solution < 3){
+    if(calif < 3){
       return 'var(--warn-color)';
-    } else if(solution < 5){
+    } else if(calif < 5){
       return 'var(--button-primary)';
     } else{
       return 'var(--primary-color)';

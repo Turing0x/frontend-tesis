@@ -21,7 +21,7 @@ export const routes: Routes = [
   },
   {
     path: 'finished-detail/:id',
-    component: FinishedDetailComponent
+    loadChildren: () => import('./routers/finished.routes').then(m => m.ExerciseFinishedRoutes)
   },
   {
     path: '',

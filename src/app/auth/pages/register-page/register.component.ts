@@ -3,7 +3,7 @@ import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } 
 import { AuthService } from '../../services/auth.service';
 import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
-import { ValidatorService } from '../../../helpers/validators/validator.service';
+import { ValidatorService } from '../../../validators/validator.service';
 
 @Component({
   selector: 'auth-register',

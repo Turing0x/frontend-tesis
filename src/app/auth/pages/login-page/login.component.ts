@@ -4,7 +4,7 @@ import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/cor
 import { AuthService } from '../../services/auth.service';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
-import { ValidatorService } from '../../../helpers/validators/validator.service';
+import { ValidatorService } from '../../../validators/validator.service';
 
 @Component({
   selector: 'auth-login',

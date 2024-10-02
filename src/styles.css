@@ -12,9 +12,13 @@ body {
   --primary-color: #4A90E2;
   --primary-accent-color: #3b4551;
   --warn-color: #FF6F30;
+  --warn-accent-color: #cb6235;
 
   --button-primary: #4CAF50;
   --button-primary-hover: #418945;
+
+  --button-danger: #c4532d;
+  --button-danger-hover: #ad5537;
 
   --background-color: #F5F5F5;
   --sidebar-color: #33373d;

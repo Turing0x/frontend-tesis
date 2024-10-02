@@ -108,4 +108,18 @@ export class ExerciseService {
     );
   }
 
+  deleteExercise(id: string){
+    return this.http.delete<any>(`${this.url}/${id}`, {headers: this.httpHeaders}).pipe(
+      map( resp => resp.data ),
+      catchError(e => {
+        Swal.fire(
+          'Error Interno',
+          'Ha ocurrido algo grave. Contacte a soporte por favor',
+          'error'
+        )
+        return throwError(() => e)
+      })
+    );
+  }
+
 }

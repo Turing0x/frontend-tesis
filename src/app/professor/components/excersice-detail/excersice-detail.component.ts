@@ -1,6 +1,6 @@
 import { ChangeDetectorRef, Component, inject, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ExerciseService } from '../../../exercise/services/exercise-service.service';
 import { Exercise } from '../../../interfaces/exercise.interface';
 import { ValidatorService } from '../../../helpers/validators/validator.service';
@@ -28,6 +28,7 @@ export class ExcersiceDetailComponent implements OnInit {
   private cdrf = inject(ChangeDetectorRef);
   private exService = inject(ExerciseService);
   private validatorService = inject(ValidatorService);
+  private router = inject(Router);
 
   public excersice!: Exercise;
 
@@ -55,6 +56,24 @@ export class ExcersiceDetailComponent implements OnInit {
 
   isValidField( field: string ): boolean | null {
     return this.validatorService.isValidField( this.myForm, field );
+  }
+
+  emptyFiles(): boolean{
+
+    const ExcerciseFileInput = document.getElementById('exercise-files') as HTMLInputElement
+    const PosibleSolutionFileInput = document.getElementById('solution-files') as HTMLInputElement
+
+    if (ExcerciseFileInput!.files!.length === 0 || PosibleSolutionFileInput!.files!.length === 0){
+      return false
+    }
+
+    return true;
+  }
+
+  noExcerciseFile(): boolean{
+    const ExcerciseFileInput = document.getElementById('exercise-files') as HTMLInputElement
+
+    return ExcerciseFileInput!.files!.length === 0;
   }
 
   onSave(){
@@ -100,24 +119,6 @@ export class ExcersiceDetailComponent implements OnInit {
     }
   }
 
-  emptyFiles(): boolean{
-
-    const ExcerciseFileInput = document.getElementById('exercise-files') as HTMLInputElement
-    const PosibleSolutionFileInput = document.getElementById('solution-files') as HTMLInputElement
-
-    if (ExcerciseFileInput!.files!.length === 0 || PosibleSolutionFileInput!.files!.length === 0){
-      return false
-    }
-
-    return true;
-  }
-
-  noExcerciseFile(): boolean{
-    const ExcerciseFileInput = document.getElementById('exercise-files') as HTMLInputElement
-
-    return ExcerciseFileInput!.files!.length === 0;
-  }
-
   onEdit() {
 
     const tohide = document.getElementsByClassName('to-hide');
@@ -152,4 +153,26 @@ export class ExcersiceDetailComponent implements OnInit {
 
   }
 
+  onDelete(){
+    const id = this.excersice._id;
+
+    Swal.fire({
+      title: '¿Estás seguro?',
+      text: 'Está seguro que deseas eliminar el ejercicio?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sí, eliminar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.exService.deleteExercise( id ).subscribe(
+          () => {
+            // this.snackbar.showSnackbar('Ejercicio eliminado', 'El ejercicio ha sido eliminado exitosamente', 'success');
+            this.router.navigate(['/professor']);
+          }
+        );
+      }
+    }
+  )}
 }

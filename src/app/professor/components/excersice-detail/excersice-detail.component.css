@@ -80,3 +80,11 @@ button i{
 .cancel-edit {
   background-color: rgb(178, 96, 96);
 }
+
+.delete-btn{
+  background-color: var(--button-danger);
+}
+
+.delete-btn:hover{
+  background-color: var(--button-danger-hover);
+}

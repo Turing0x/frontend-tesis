@@ -1,15 +1,20 @@
 section{
-  padding: 10px;
+  margin: 4px 24px 24px 24px;
+  padding: 30px;
+  border : 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 h2 {
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 4px;
-  color: #333;
+  color: var(--text-color-primary);
 }
 
 p{
+  color: var(--text-color-secondary);
   border: 1px solid #ddd;
   border-radius: 8px;
   padding: 10px;
@@ -17,70 +22,18 @@ p{
   margin-bottom: 20px;
 }
 
-div{
+.field{
   display: flex;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: start;
   align-items: center;
-  flex-direction: column;
 }
 
-button {
-  display: flex;
-  align-items: center;
-  background-color: var(--button-primary);
-  color: white;
-  font-size: 18px;
-  border: none;
-  margin-bottom: 15px;
-  margin-right: 5px;
-  margin-left: 5px;
-  padding: 12px 22px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-button:hover {
-  background-color: var(--button-primary-hover);
-}
-
-i{
-  margin-right: 8px;
-}
-
-input{
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  margin-top: 20px;
-  margin-bottom: 5px;
-}
-
-.download-buttons-container{
-  margin-bottom: 20px;
-
-}
-
-.upload-buttons-container{
-  width: 40%;
-  border: 1px solid #cfcfcf;
-  border-radius: 5px;
-}
-.upload-buttons-container button{
-  margin-top: 20px;
-}
-
-.upload-buttons-container h2{
-  margin-top: 10px;
+.title{
   font-size: 24px;
   font-weight: bold;
-}
-
-.actions{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  margin-bottom: 10px;
+  border-bottom: #ddd 1px solid;
 }
 
 .no-anotations {
@@ -93,4 +46,29 @@ input{
   font-size: 16px;
   color: #333;
   margin-bottom: 20px;
+}
+
+
+.calification-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-left: 20px;
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+}
+
+.calification{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  font-weight: bold;
+  width: 45px;
+  height: 45px;
+  border-radius: 100%;
+  background-color: white;
 }

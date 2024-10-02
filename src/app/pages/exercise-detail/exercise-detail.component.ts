@@ -9,15 +9,15 @@ import { SnackbarComponent } from "../../shared/snackbar/snackbar.component";
 import { ExerciseService } from '../../services/exercise-service.service';
 
 @Component({
-  selector: 'app-excersice-detail',
+  selector: 'app-exercise-detail',
   standalone: true,
   imports: [
     CommonModule,
     ReactiveFormsModule,
     SnackbarComponent
 ],
-  templateUrl: './excersice-detail.component.html',
-  styleUrl: './excersice-detail.component.css'
+  templateUrl: './exercise-detail.component.html',
+  styleUrl: './exercise-detail.component.css'
 })
 export class ExcersiceDetailComponent implements OnInit {
 
@@ -30,7 +30,7 @@ export class ExcersiceDetailComponent implements OnInit {
   private validatorService = inject(ValidatorService);
   private router = inject(Router);
 
-  public excersice!: Exercise;
+  public exercise!: Exercise;
 
   myForm: FormGroup = this.fb.group({
     title: ['', Validators.required],
@@ -48,7 +48,7 @@ export class ExcersiceDetailComponent implements OnInit {
             this.myForm.controls['description'].setValue(exc.description);
             this.myForm.controls['annotations'].setValue(exc.annotations);
 
-            this.excersice = exc}
+            this.exercise = exc}
         );
 
         this.cdrf.detectChanges();
@@ -60,15 +60,15 @@ export class ExcersiceDetailComponent implements OnInit {
     return this.validatorService.isValidField( this.myForm, field );
   }
 
-  noExcerciseFile(): boolean{
-    const ExcerciseFileInput = document.getElementById('exercise-files') as HTMLInputElement
-    return ExcerciseFileInput!.files!.length === 0;
+  noExerciseFile(): boolean{
+    const ExerciseFileInput = document.getElementById('exercise-files') as HTMLInputElement
+    return ExerciseFileInput!.files!.length === 0;
   }
 
   onSave(){
-    if( this.myForm.valid && !this.noExcerciseFile() ){
+    if( this.myForm.valid && !this.noExerciseFile() ){
 
-      const id = this.excersice._id;
+      const id = this.exercise._id;
       const titleValue = this.myForm.get('title')?.value;
       const descriptionValue = this.myForm.get('description')?.value;
       const annotationsValue = this.myForm.get('annotations')?.value;
@@ -125,9 +125,9 @@ export class ExcersiceDetailComponent implements OnInit {
         editBtn.classList.remove('cancel-edit')
         editBtn.classList.add('green-btn')
         editBtn.innerText = 'Editar';
-        this.myForm.controls['title'].setValue(this.excersice.title);
-        this.myForm.controls['description'].setValue(this.excersice.description);
-        this.myForm.controls['annotations'].setValue(this.excersice.annotations);
+        this.myForm.controls['title'].setValue(this.exercise.title);
+        this.myForm.controls['description'].setValue(this.exercise.description);
+        this.myForm.controls['annotations'].setValue(this.exercise.annotations);
       }
     });
 
@@ -145,7 +145,7 @@ export class ExcersiceDetailComponent implements OnInit {
   }
 
   onDelete(){
-    const id = this.excersice._id;
+    const id = this.exercise._id;
 
     Swal.fire({
       title: '¿Estás seguro?',
@@ -166,7 +166,7 @@ export class ExcersiceDetailComponent implements OnInit {
               confirmButtonColor: '#3085d6',
               confirmButtonText: 'OK'
             });
-            this.router.navigate(['/professor']);
+            this.router.navigate(['/exercise/professor']);
           }
         );
       }

@@ -1,6 +1,12 @@
-import { Routes } from "@angular/router";
-import { ExercisePageComponent } from "../pages/exercise-page/exercise-page.component";
-import { HomePageComponent } from "../pages/home-page/home-page.component";
+import { Routes } from '@angular/router';
+import { ExerciseCreateComponent } from '../pages/exercise-create/exercise-create.component';
+import { ExercisesComponent } from '../pages/exercises/exercises.component';
+import { HomePageComponent } from '../pages/home-page/home-page.component';
+import { FinishedDetailComponent } from '../pages/finished-detail/finished-detail.component';
+import { FinishedExercisesComponent } from '../pages/finished-exercise/finished-exercises.component';
+import { PendingExercicesComponent } from '../pages/pending-exercices/pending-exercices.component';
+import { ExcersiceDetailComponent } from '../pages/exercise-detail/exercise-detail.component';
+import { ExercisePageComponent } from '../pages/exercise-page/exercise-page.component';
 
 export const routes: Routes = [
   {
@@ -8,12 +14,49 @@ export const routes: Routes = [
     component: HomePageComponent,
     children: [
       {
+        path: 'create',
+        component: ExerciseCreateComponent,
+        title: 'Crear ejercicio'
+      },
+      {
+        path: 'professor',
+        component: ExercisesComponent,
+        title: 'Ejercicios',
+
+      },
+      {
+        path: 'student',
+        component: PendingExercicesComponent,
+        title: 'Ejercicios pendientes',
+
+      },
+      {
+        path: 'finished',
+        component: FinishedExercisesComponent,
+        title: 'Ejercicios realizados'
+      },
+      {
+        path: 'details/:id',
+        component: ExercisePageComponent,
+        title: 'Detalles del ejercicio'
+      },
+      {
+        path: 'manager/:id',
+        component: ExcersiceDetailComponent,
+        title: 'Detalles del ejercicio'
+      },
+      {
+        path: 'finished/details/:id',
+        component: FinishedDetailComponent,
+        title: 'Detalles del ejercicio realizado'
+      },
+      {
         path: '',
-        component: ExercisePageComponent
+        redirectTo: 'exercises',
+        pathMatch: 'full'
       }
     ]
-  }
+  },
+];
 
-]
-
-export const ExerciseRoutes = routes;
+export const ExercisesRoutes = routes;

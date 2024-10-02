@@ -10,14 +10,14 @@
     <ul>
 
       <span>
-        <div routerLink="/professor/excercises">
+        <div routerLink="/exercise/professor">
           <li>
             <i class="material-icons">assignment</i>
             Ejercicios
           </li>
         </div>
 
-        <div routerLink="/professor/solutions">
+        <div routerLink="/solution">
           <li>
             <i class="material-icons">assignment_turned_in</i>
             Soluciones
@@ -32,14 +32,14 @@
     <ul>
 
       <span>
-        <div routerLink="/student/pending">
+        <div routerLink="/exercise/student">
           <li>
             <i class="material-icons">assignment</i>
             Ejercicios Pendientes
           </li>
         </div>
 
-        <div routerLink="/student/finished">
+        <div routerLink="/exercise/finished">
           <li>
             <i class="material-icons">assignment_turned_in</i>
             Ejercicios Realizados
@@ -53,9 +53,7 @@
   <div (click)="onLogout()">
     <li>
       <i class="material-icons">logout</i>
-
         Cerrar sesión
-
     </li>
   </div>
 

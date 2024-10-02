@@ -27,8 +27,8 @@ export class ExercisePageComponent implements OnInit{
   ngOnInit(): void {
     this.activatedRouter.params.subscribe(({id}) => {
       this.exSerive.getExercise(id).subscribe(
-        excersice => {
-          this.exercise = excersice;
+        exercise => {
+          this.exercise = exercise;
           this.cdrf.detectChanges();
         }
       );
@@ -48,11 +48,11 @@ export class ExercisePageComponent implements OnInit{
     this.handleFilesUpload($inputFiles.files!);
   }
 
-  async downloadExcerciseFile() {
+  async downloadExerciseFile() {
 
     const ex_id = this.exercise._id;
 
-    const response = await fetch(`http://localhost:8080/api/excercises/download/${ex_id}`);
+    const response = await fetch(`http://localhost:8080/api/exercises/download/${ex_id}`);
 
     if( !response.ok ) {
       return;

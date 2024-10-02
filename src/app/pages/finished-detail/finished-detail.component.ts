@@ -27,6 +27,7 @@ export class FinishedDetailComponent {
 
   ngOnInit(): void {
     this.activatedRouter.params.subscribe(({id}) => {
+      console.log(id);
       this.exSerive.getFinishedById(id).subscribe(
         ([exercise, solution]) => {
           this.exercise = exercise;

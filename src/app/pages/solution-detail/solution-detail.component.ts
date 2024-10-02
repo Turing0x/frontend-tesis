@@ -52,7 +52,6 @@ export class SolutionDetailComponent implements OnInit {
       this.myForm.markAllAsTouched();
       return;
     }
-    console.log('enviar');
   }
 
   isValidField( field: string ): boolean | null {

@@ -11,14 +11,5 @@
 
 ## Issues:
 
-<<<<<<< HEAD
 - [x] !!! IMPORTANTE: Cuando el profesor crea un ejercicio, no se le añade al usuario.
 - [x] No hay feedback al crear o editar nada (falta implementar Snackbars).
-=======
-- [ ] !!! IMPORTANTE: Cuando el profesor crea un ejercicio, no se le añade al usuario.
-- [ ] Al editar un ejercicio que contiene un archivo, el archivo no aparece en el input de `exercise_files`.
-- [ ] No hay feedback al crear o editar nada (falta implementar Snackbars).
-- [ ] Revisar todo ya que se añadió título al ejercicio.
-- [ ] Editar ejercicio no actualiza nada en la base de datos.
-- [ ] Editar ejercicio no deja guardar si tiene un archivo de posible solución.
->>>>>>> e02fba6bdd0355ed17b7fbc93d94d73e48c82f1e

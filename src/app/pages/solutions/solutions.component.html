@@ -28,14 +28,9 @@
         <div class="excercise-container field">
           <div>
             <h3>Solución al ejercicio:</h3>
-            <p>{{ solution.exercise_id.title }} Ejercio de ip.</p>
+            <p>{{ solution.exercise_id.title }}</p>
           </div>
-          <a routerLink="/professor/excersice/details/{{ solution.exercise_id }}" class="excersice-link">Detalles del ejercicio</a>
-        </div>
-
-        <div>
-          <h3>Fecha:</h3>
-        <p> {{ solution.date }} 16/10/2022</p>
+          <a routerLink="/professor/excersice/details/{{ solution.exercise_id._id }}" class="excersice-link">Detalles del ejercicio</a>
         </div>
 
         <a class="btn" routerLink="/professor/solution/details/{{ solution._id }}">Ver</a>

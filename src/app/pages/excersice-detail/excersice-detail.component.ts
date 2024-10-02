@@ -60,26 +60,13 @@ export class ExcersiceDetailComponent implements OnInit {
     return this.validatorService.isValidField( this.myForm, field );
   }
 
-  emptyFiles(): boolean{
-
-    const ExcerciseFileInput = document.getElementById('exercise-files') as HTMLInputElement
-    const PosibleSolutionFileInput = document.getElementById('solution-files') as HTMLInputElement
-
-    if (ExcerciseFileInput!.files!.length === 0 || PosibleSolutionFileInput!.files!.length === 0){
-      return false
-    }
-
-    return true;
-  }
-
   noExcerciseFile(): boolean{
     const ExcerciseFileInput = document.getElementById('exercise-files') as HTMLInputElement
-
     return ExcerciseFileInput!.files!.length === 0;
   }
 
   onSave(){
-    if( !this.myForm.invalid && !this.emptyFiles() ){
+    if( this.myForm.valid && !this.noExcerciseFile() ){
 
       const id = this.excersice._id;
       const titleValue = this.myForm.get('title')?.value;
@@ -93,30 +80,29 @@ export class ExcersiceDetailComponent implements OnInit {
       formData.append('title', titleValue);
       formData.append('description', descriptionValue);
       formData.append('annotations', annotationsValue);
-      formData.append('file', excFiles.files![0]);
+      formData.append('exFile', excFiles.files![0]);
+      formData.append('possibleSolFile', solutionFiles.files![0]);
 
-
-      this.exService.editExercise( id, formData ).subscribe(
-        () => {
-          Swal.fire({
-            title: '¿Estás seguro?',
-            text: 'Está seguro que deseas editar el ejercicio?',
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Sí, guardar'
-          }).then((result) => {
-            if (result.isConfirmed) {
-              this.exService.editExercise( id, formData ).subscribe(
-                () => {
-                  this.snackbar.showSnackbar('Ejercicio editado', 'El ejercicio ha sido editado exitosamente', 'success');
-                }
-              );
+      Swal.fire({
+        title: '¿Estás seguro?',
+        text: 'Está seguro que deseas editar el ejercicio?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Sí, guardar'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          this.exService.editExercise( id!, formData ).subscribe(
+            () => {
+              this.snackbar.showSnackbar(
+                'Ejercicio editado', 
+                'El ejercicio ha sido editado exitosamente', 
+                'success');
             }
-          });
+          );
         }
-      );
+      });
 
     }
   }
@@ -169,7 +155,7 @@ export class ExcersiceDetailComponent implements OnInit {
       confirmButtonText: 'Sí, eliminar'
     }).then((result) => {
       if (result.isConfirmed) {
-        this.exService.deleteExercise( id ).subscribe(
+        this.exService.deleteExercise( id! ).subscribe(
           () => {
             Swal.fire({
               title: 'eliminado',

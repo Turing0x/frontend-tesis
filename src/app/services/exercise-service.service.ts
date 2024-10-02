@@ -93,10 +93,10 @@ export class ExerciseService {
     );
   }
 
-  editExercise(id: string, data: FormData){
+  editExercise(id: string, data: FormData): Observable<Exercise> {
 
     return this.http.put<any>(`${this.url}/${id}`, data).pipe(
-      map( resp => resp.data ),
+      map(resp => resp.data),
       catchError(e => {
         Swal.fire(
           'Error Interno',

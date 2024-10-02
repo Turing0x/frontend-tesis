@@ -19,3 +19,5 @@
 - [ ] Al editar un ejercicio que contiene un archivo, el archivo no aparece en el input de `exercise_files`.
 - [ ] No hay feedback al crear o editar nada (falta implementar Snackbars).
 - [ ] Revisar todo ya que se añadió título al ejercicio.
+- [ ] Editar ejercicio no actualiza nada en la base de datos.
+- [ ] Editar ejercicio no deja guardar si tiene un archivo de posible solución.

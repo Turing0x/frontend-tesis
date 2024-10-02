@@ -6,8 +6,7 @@
 
     @for (solution of solutions; track $index) {
       <shared-card
-      [title]="'Solución'"
-      [description]="'Descripción'"
+      [description]="solution.file_name"
       [link]="'/professor/solution/details/'"
       [param]="solution._id"
     ></shared-card>

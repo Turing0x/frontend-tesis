@@ -23,11 +23,6 @@
       </div>
 
       <div class="field">
-        <h1>Fecha de publicación:</h1>
-        <span> {{ this.solution.date }} </span>
-      </div>
-
-      <div class="field">
         @if (this.solution.evaluation !== 0) {
           <h1>Evaluación: </h1>
           <span> {{ this.solution.evaluation }} </span>
@@ -59,7 +54,15 @@
           <input formControlName="evaluation" type="number">
           <span class="error" *ngIf="isValidField('evaluation')">La evaluacion es requerida y debe ser un numero entre 2 y 5.</span>
 
-          <button type="submit">Calificar</button>
+          <button (click)="calificateSolution()">
+            @if (this.solution.evaluation === 0) {
+              <i class="material-icons">check</i>
+              Calificar
+            } @else {
+              <i class="material-icons">add</i>
+              Recalificar
+            }
+          </button>
         </form>
       </div>
 

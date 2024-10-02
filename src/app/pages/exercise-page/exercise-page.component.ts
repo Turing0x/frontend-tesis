@@ -70,7 +70,7 @@ export class ExercisePageComponent implements OnInit{
     const student_id = localStorage.getItem('user_id');
     if( !student_id ) return;
 
-    this.exSerive.uploadSolution(this.exercise._id, student_id, formData).subscribe(
+    this.exSerive.uploadSolution(this.exercise._id!, student_id, formData).subscribe(
       res => {
         console.log('res :>> ', res);
       }

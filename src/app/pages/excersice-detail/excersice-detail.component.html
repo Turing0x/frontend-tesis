@@ -22,32 +22,32 @@
       <input readonly formControlName="annotations" type="text" id="annotations" placeholder="Ingresa anotaciones">
     </div>
 
-    <div class=" to-hide form-group hidden">
+    <div class="to-hide form-group hidden">
       <label for="exercise-files">Ficheros del ejercicio:</label>
       <input (change)="noExcerciseFile()" type="file" id="exercise-files">
       <!-- <span *ngIf="noExcerciseFile()" class="error">Archivo requerido</span> -->
     </div>
 
-    <div class=" to-hide form-group hidden">
+    <div class="to-hide form-group hidden">
       <label for="solution-files">Posible solución:</label>
       <input type="file" id="solution-files">
     </div>
 
-    <div class="btn-container">
-      <button class=" to-hide hidden" type="submit">
+    <div class="btn-container" (click)="onSave()">
+      <span class="to-hide hidden" >
         <!-- <i class="material-icons">save</i> -->
         Guardar
-      </button>
+      </span>
 
-      <button id="edit-btn" type="button" (click)="onEdit()">
+      <span id="edit-btn" (click)="onEdit()">
         <!-- <i class="material-icons">edit</i> -->
         Editar
-      </button>
+      </span>
 
-      <button class="delete-btn" id="delete-btn" type="button" (click)="onDelete()">
+      <span class="delete-btn" id="delete-btn" (click)="onDelete()">
         <!-- <i class="material-icons">edit</i> -->
         Eliminar
-      </button>
+      </span>
 
     </div>
 

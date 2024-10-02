@@ -22,7 +22,6 @@ export class FinishedExercisesComponent implements OnInit {
 
     this.studentService.getFinishedExercises(id).subscribe(
       data => {
-        console.log(data);
         this.exercises = data
       }
     );

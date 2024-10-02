@@ -1,5 +1,8 @@
 @if (exercise) {
-  <section>
+  <section class="exercise-detail">
+
+    <h2 class="title">Información del ejercicio:</h2>
+
     <h2>Título del ejercicio:</h2>
     <p> {{ exercise.title }} </p>
 
@@ -12,8 +15,36 @@
     }@else {
       <p class="anotations" > {{ exercise.annotations }} </p>
     }
+
   </section>
 
 }
 
+@if (solution) {
+  <section class="solution-detail">
+
+    <h2 class="title">Información de tu solución:</h2>
+
+    <div class="field">
+      @if (solution.evaluation !== 0) {
+        <h2>Evaluación:</h2>
+        <div [ngStyle]="{'background-color': calificationColor(solution.evaluation)}" class="calification-container">
+
+          <div class="calification">
+            @if (solution.evaluation === 0) {
+              <i style="color: grey" class="material-icons">question_mark</i>
+            } @else{
+            <span [ngStyle]="{'color': calificationColor(solution.evaluation)}" > {{ solution.evaluation }} </span>
+            }
+          </div>
+
+        </div>
+
+      } @else {
+        <h2>Aún sin evaluación.</h2>
+      }
+    </div>
+
+  </section>
+}
 

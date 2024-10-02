@@ -7,6 +7,7 @@ import { CommonModule } from '@angular/common';
 import { ValidatorService } from '../../validators/validator.service';
 import Swal from 'sweetalert2';
 import { SnackbarComponent } from '../../shared/snackbar/snackbar.component';
+import { downloadFile } from '../../helpers/download_file';
 
 @Component({
   selector: 'app-solution-detail',
@@ -49,8 +50,9 @@ export class SolutionDetailComponent implements OnInit {
     });
   }
 
-  onDownload(){
-    console.log('descargar');
+  async onDownload(){
+    const sol_id = this.solution._id;
+    await downloadFile('solutions', sol_id)   
   }
 
   onSubmit(){

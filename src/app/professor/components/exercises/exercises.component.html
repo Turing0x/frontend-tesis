@@ -5,9 +5,9 @@
   <ul>
     @for (exce of list; track $index) {
       <shared-card
-        [title]="'Ejercicio'"
+        [title]="exce.title"
         [description]="exce.description"
-        [link]="'/professor/details'"
+        [link]="'/professor/excersice/details/'"
         [param]="exce._id"
         [delete]="true"
         [id]="exce._id"

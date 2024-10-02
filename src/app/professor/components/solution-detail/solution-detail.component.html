@@ -1,0 +1,26 @@
+@if (this.solution) {
+
+  <section>
+
+
+    <div>
+      <h1>Autor:</h1>
+      <span> {{ this.solution.student_id.full_name }} </span>
+
+      <h1>Respuesta al ejercicio:</h1>
+      <span> {{ this.solution.exercise_id.title }} </span>
+
+      <h1>Fecha de publicación:</h1>
+      <span> {{ this.solution.date }} </span>
+
+      <h1>Evaluación: </h1>
+      <span> {{ this.solution.evaluation }} </span>
+
+      <h1>Anotaciones:</h1>
+      <span> {{ this.solution.anotations }} </span>
+
+    </div>
+
+  </section>
+
+}

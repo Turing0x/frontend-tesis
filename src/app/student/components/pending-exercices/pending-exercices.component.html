@@ -10,7 +10,7 @@
 
     @for(pend of pendingExercises; track $index) {
       <shared-card
-        [title]="'Ejercicio'"
+        [title]="pend.title"
         [description]="pend.description"
         [link]="'/exercise'"
         [param]="pend._id"

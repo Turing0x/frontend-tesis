@@ -37,7 +37,5 @@ export class StudentService {
       );
 
   }
-  url<T>(url: any, arg1: { headers: any; }) {
-    throw new Error('Method not implemented.');
-  }
+
 }

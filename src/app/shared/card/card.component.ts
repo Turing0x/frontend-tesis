@@ -16,7 +16,7 @@ import { ExerciseService } from '../../exercise/services/exercise-service.servic
 })
 export class CardComponent {
 
-  @Input() title: string = 'Titulo';
+  @Input() title?: string = 'Titulo';
   @Input() id?: string;
   @Input() description: string = 'Descripción';
   @Input() link: string = 'Link';

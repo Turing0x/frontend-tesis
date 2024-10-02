@@ -18,3 +18,4 @@
 - [ ] !!! IMPORTANTE: Cuando el profesor crea un ejercicio, no se le añade al usuario.
 - [ ] Al editar un ejercicio que contiene un archivo, el archivo no aparece en el input de `exercise_files`.
 - [ ] No hay feedback al crear o editar nada (falta implementar Snackbars).
+- [ ] Revisar todo ya que se añadió título al ejercicio.

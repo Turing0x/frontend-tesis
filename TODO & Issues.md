@@ -12,6 +12,8 @@
 - [ ] Clasificar las soluciones por [ ejercicio, estudiante, grupo y ejercicio y grupo a la vez ]
 - [ ] Btn en ejercicios para ver todas las soluciones de ese ejercicio.
 - [X] Validar el login cuando es incorrecta la contraseña y el usuario no existe.
+- [ ] Al eliminar un ejercicio que se borren todas las soluciones asociadas.
+- [ ] Avisar en el Swal de eliminar ejercicio que tamb se borraran todas las soluciones asociadas.
 
 ## Issues:
 

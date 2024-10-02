@@ -96,8 +96,8 @@ export class ExcersiceDetailComponent implements OnInit {
           this.exService.editExercise( id!, formData ).subscribe(
             () => {
               this.snackbar.showSnackbar(
-                'Ejercicio editado', 
-                'El ejercicio ha sido editado exitosamente', 
+                'Ejercicio editado',
+                'El ejercicio ha sido editado exitosamente',
                 'success');
             }
           );
@@ -118,10 +118,12 @@ export class ExcersiceDetailComponent implements OnInit {
       if( classList.contains('hidden') ){
         classList.remove('hidden');
         editBtn.classList.add('cancel-edit')
+        editBtn.classList.remove('green-btn')
         editBtn.innerText = 'Cancelar';
       } else {
         classList.add('hidden')
         editBtn.classList.remove('cancel-edit')
+        editBtn.classList.add('green-btn')
         editBtn.innerText = 'Editar';
         this.myForm.controls['title'].setValue(this.excersice.title);
         this.myForm.controls['description'].setValue(this.excersice.description);

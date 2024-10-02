@@ -42,7 +42,6 @@ input[type="file"]:focus {
   display: flex;
   flex-direction: row;
   align-items: center;
-  background-color: #4CAF50;
   margin-right: 12px;
   color: white;
   padding: 10px 15px;
@@ -53,8 +52,8 @@ input[type="file"]:focus {
   transition: background-color 0.3s;
 }
 
-.btn-container span:hover {
-  background-color: #45a049;
+.btn-container span:hover{
+  cursor: pointer;
 }
 
 .btn-container span i{
@@ -81,10 +80,24 @@ input[type="file"]:focus {
   background-color: rgb(178, 96, 96);
 }
 
+.cancel-edit:hover{
+  background-color: var(--button-danger-hover);
+  cursor: pointer;
+}
+
 .delete-btn{
   background-color: var(--button-danger);
 }
 
 .delete-btn:hover{
   background-color: var(--button-danger-hover);
+}
+
+
+.green-btn{
+  background-color: var(--button-primary);
+}
+
+.green-btn:hover{
+  background-color: var(--button-primary-hover);
 }

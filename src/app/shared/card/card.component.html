@@ -1,5 +1,8 @@
-<div>
-  <!-- <h3>{{ title }}:</h3> -->
+<div class="card">
+  <div *ngIf="title !== 'Título'">
+    <h3>Título:</h3>
+    <p>{{ title }}</p>
+  </div>
   <h3>Descripción:</h3>
   <p> {{description}} </p>
 

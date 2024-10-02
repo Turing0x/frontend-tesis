@@ -1,6 +1,12 @@
+import { Exercise } from "./exercise.interface";
+import { User } from "./user.interface";
+
 export type Solution = {
-    _id: string;
-    solution_files_info: string[];
-    student_id: string
-    date: string;
+  _id: string;
+  student_id: User;
+  exercise_id: Exercise;
+  evaluation: number;
+  anotations: string;
+  file_name: string;
+  date: string;
 }

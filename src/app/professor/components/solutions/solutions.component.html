@@ -4,12 +4,13 @@
 
   <ul>
 
-    <shared-card
-      [title]="'Solución'"
-      [description]="'Descripción'"
-      [link]="''"
-      [param]="''"
+    @for (solution of solutions; track $index) {
+      <shared-card
+      [description]="solution.file_name"
+      [link]="'/professor/solution/details/'"
+      [param]="solution._id"
     ></shared-card>
+    }
 
   </ul>
 

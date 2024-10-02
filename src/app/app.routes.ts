@@ -11,12 +11,12 @@ export const routes: Routes = [
     loadChildren: () => import('./student/student.routes').then(m => m.StudentRoutes)
   },
   {
-    path: 'exercise/:id',
-    loadChildren: () => import('./exercise/exercise.routes').then(m => m.ExerciseRoutes)
-  },
-  {
     path: 'professor',
     loadChildren: () => import('./professor/professor.routes').then(m => m.ProfessorRoutes)
+  },
+  {
+    path: 'exercise/:id',
+    loadChildren: () => import('./exercise/exercise.routes').then(m => m.ExerciseRoutes)
   },
   {
     path: '',

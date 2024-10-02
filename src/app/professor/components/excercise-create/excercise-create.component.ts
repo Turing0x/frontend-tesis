@@ -30,6 +30,7 @@ export class ExcerciseCreateComponent implements OnInit {
   private validatorService = inject(ValidatorService);
 
   myForm: FormGroup = this.fb.group({
+    title: ['prueba', Validators.required],
     description: ['prueba', Validators.required],
     annotations: ['prueba'],
   })
@@ -56,13 +57,14 @@ export class ExcerciseCreateComponent implements OnInit {
       this.myForm.markAllAsTouched();
       return;
     }
-
+    const titleValue = this.myForm.get('title')?.value;
     const descriptionValue = this.myForm.get('description')?.value;
     const annotationsValue = this.myForm.get('annotations')?.value;
 
     const solutionFiles = document.getElementById('solution-files') as HTMLInputElement;
 
     const formData = new FormData();
+    formData.append('title', titleValue);
     formData.append('description', descriptionValue);
     formData.append('annotations', annotationsValue);
     formData.append('exFile', excFiles.files![0]);

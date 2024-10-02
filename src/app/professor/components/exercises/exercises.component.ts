@@ -4,7 +4,6 @@ import { ExerciseService } from '../../../exercise/services/exercise-service.ser
 import { Exercise } from '../../../interfaces/exercise.interface';
 import { CardComponent } from '../../../shared/card/card.component';
 import { SnackbarComponent } from '../../../shared/snackbar/snackbar.component';
-import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-exercises',

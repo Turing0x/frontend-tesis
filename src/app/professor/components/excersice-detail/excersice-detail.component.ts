@@ -33,6 +33,7 @@ export class ExcersiceDetailComponent implements OnInit {
   public excersice!: Exercise;
 
   myForm: FormGroup = this.fb.group({
+    title: ['', Validators.required],
     description: ['', Validators.required],
     annotations: [''],
   })
@@ -43,6 +44,7 @@ export class ExcersiceDetailComponent implements OnInit {
         this.exService.getExcersiceById(id).subscribe(
           exc => {
 
+            this.myForm.controls['title'].setValue(exc.title);
             this.myForm.controls['description'].setValue(exc.description);
             this.myForm.controls['annotations'].setValue(exc.annotations);
 
@@ -80,6 +82,7 @@ export class ExcersiceDetailComponent implements OnInit {
     if( !this.myForm.invalid && !this.emptyFiles() ){
 
       const id = this.excersice._id;
+      const titleValue = this.myForm.get('title')?.value;
       const descriptionValue = this.myForm.get('description')?.value;
       const annotationsValue = this.myForm.get('annotations')?.value;
 
@@ -87,6 +90,7 @@ export class ExcersiceDetailComponent implements OnInit {
       const solutionFiles = document.getElementById('solution-files') as HTMLInputElement;
 
       const formData = new FormData();
+      formData.append('title', titleValue);
       formData.append('description', descriptionValue);
       formData.append('annotations', annotationsValue);
       formData.append('file', excFiles.files![0]);
@@ -135,6 +139,7 @@ export class ExcersiceDetailComponent implements OnInit {
         classList.add('hidden')
         editBtn.classList.remove('cancel-edit')
         editBtn.innerText = 'Editar';
+        this.myForm.controls['title'].setValue(this.excersice.title);
         this.myForm.controls['description'].setValue(this.excersice.description);
         this.myForm.controls['annotations'].setValue(this.excersice.annotations);
       }

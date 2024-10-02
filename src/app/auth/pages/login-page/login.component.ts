@@ -1,10 +1,11 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, OnInit, ViewChild } from '@angular/core';
 
 import { AuthService } from '../../services/auth.service';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { ValidatorService } from '../../../validators/validator.service';
+import { SnackbarComponent } from '../../../shared/snackbar/snackbar.component';
 
 @Component({
   selector: 'auth-login',
@@ -12,13 +13,16 @@ import { ValidatorService } from '../../../validators/validator.service';
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    RouterModule
-  ],
+    RouterModule,
+    SnackbarComponent
+],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LoginPageComponent implements OnInit{
+
+  @ViewChild(SnackbarComponent) snackbar!: SnackbarComponent;
 
   private authService = inject(AuthService);
 
@@ -59,7 +63,7 @@ export class LoginPageComponent implements OnInit{
           localStorage.setItem("user_type", user.type);
           this.redirectByRole(user.type);
         }else{
-          //TODO: snack bar Login Failed (email o contraseña incorrectos)
+          this.snackbar.showSnackbar('Login Failed', 'Email o contraseña incorrectos', 'error');
           console.log('Login failed', response.success);
         }
 

@@ -11,7 +11,7 @@
 - [ ] Cuando el estudiante ya dio solucion al ejercicio cuando vaya a los detalles del ejercicio en finished que edite archivos de solucion en vez de crear otra solucion
 - [ ] Clasificar las soluciones por [ ejercicio, estudiante, grupo y ejercicio y grupo a la vez ]
 - [ ] Btn en ejercicios para ver todas las soluciones de ese ejercicio.
-- [ ] Validar el login cuando es incorrecta la contraseña y el usuario no existe.
+- [X] Validar el login cuando es incorrecta la contraseña y el usuario no existe.
 
 ## Issues:
 

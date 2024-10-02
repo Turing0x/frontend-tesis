@@ -58,14 +58,14 @@ span{
   margin-bottom: 5px;
 }
 
-.excercise-container{
+.exercise-container{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: start;
 }
 
-.excersice-link{
+.exercise-link{
   margin-top: 5px;
   margin-bottom: 5px;
   font-weight: bold;
@@ -73,7 +73,7 @@ span{
   text-decoration: underline;
 }
 
-.excersice-link:hover{
+.exercise-link:hover{
   color: var(--primary-color-hover);
   cursor: pointer;
 }

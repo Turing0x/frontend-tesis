@@ -22,12 +22,12 @@ export class ExercisesComponent implements OnInit{
 
   private exService = inject(ExerciseService);
 
-  public excersice!: Exercise;
+  public exercise!: Exercise;
 
   public list!: Exercise[];
 
   ngOnInit(): void {
-    this.exService.getAllExcercises().subscribe(
+    this.exService.getAllExercises().subscribe(
       data => this.list = data
     )
   }

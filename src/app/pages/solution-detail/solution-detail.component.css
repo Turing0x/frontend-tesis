@@ -53,13 +53,13 @@ button i{
 
 }
 
-.excersice-link{
+.exercise-link{
   font-weight: bold;
   color: var(--primary-color);
   text-decoration: underline;
 }
 
-.excersice-link:hover{
+.exercise-link:hover{
   color: var(--primary-color-hover);
   cursor: pointer;
 }

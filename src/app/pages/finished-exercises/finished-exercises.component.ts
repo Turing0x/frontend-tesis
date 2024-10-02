@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { CardComponent } from "../../components/card/card.component";
 import { Exercise } from '../../interfaces/exercise.interface';
+import { StudentService } from '../../services/student.service';
 
 @Component({
   selector: 'student-finished-exercises',
@@ -11,10 +12,20 @@ import { Exercise } from '../../interfaces/exercise.interface';
 })
 export class FinishedExercisesComponent implements OnInit {
 
+  private studentService = inject(StudentService);
+
   public exercises: Exercise[] = [];
 
   ngOnInit(): void {
-    console.log('finished-exercises OnInit');
+    const id = localStorage.getItem('user_id');
+    if( !id ) return;
+
+    this.studentService.getFinishedExercises(id).subscribe(
+      data => {
+        console.log(data);
+        this.exercises = data
+      }
+    );
   }
 
 }

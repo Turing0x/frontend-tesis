@@ -12,7 +12,7 @@ export class StudentService {
 
   private http = inject(HttpClient);
 
-  private user_url = `${Environments.base_url}/users/pending_exercises`;
+  private user_url = `${Environments.base_url}/users`;
 
   private get httpHeaders() {
     return new HttpHeaders({
@@ -20,9 +20,26 @@ export class StudentService {
     });
   }
 
+  getFinishedExercises(id: string): Observable<Exercise[]> {
+    console.log(id);
+    return this.http.get<any>(`${ this.user_url }/finished/${ id }`, {
+      headers: this.httpHeaders
+    }).pipe(
+      map(response => response.data),
+        catchError(e => {
+          Swal.fire(
+            'Error Interno',
+            'Ha ocurrido algo grave. Contacte a soporte por favor',
+            'error'
+          )
+          return throwError(() => e)
+        })
+      );
+  }
+
   getPendingExercises(id: string): Observable<Exercise[]> {
 
-    return this.http.get<any>(`${ this.user_url }/${ id }`, {
+    return this.http.get<any>(`${ this.user_url }/pending/${ id }`, {
       headers: this.httpHeaders
     }).pipe(
       map(response => response.data),

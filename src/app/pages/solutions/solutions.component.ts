@@ -2,11 +2,17 @@ import { Component, OnInit, inject } from '@angular/core';
 import { CardComponent } from "../../components/card/card.component";
 import { Solution } from '../../interfaces/solution.interface';
 import { SolutionService } from '../../services/solution.service';
+import { RouterLink } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-solutions',
   standalone: true,
-  imports: [CardComponent],
+  imports: [
+    CommonModule,
+    RouterLink,
+    CardComponent
+  ],
   templateUrl: './solutions.component.html',
   styleUrl: './solutions.component.css'
 })
@@ -28,4 +34,16 @@ export class SolutionsComponent implements OnInit {
     )
   }
 
+  calificationColor(){
+
+    const solution = 5;
+
+    if(solution < 3){
+      return 'var(--warn-color)';
+    } else if(solution < 5){
+      return 'var(--button-primary)';
+    } else{
+      return 'var(--primary-color)';
+    }
+  }
 }

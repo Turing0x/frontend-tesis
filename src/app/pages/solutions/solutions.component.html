@@ -19,7 +19,11 @@
           <div [ngStyle]="{'background-color': calificationColor(solution.evaluation)}" class="calification-container">
 
             <div class="calification">
+              @if (solution.evaluation === 0) {
+                <i style="color: grey" class="material-icons">question_mark</i>
+              } @else{
               <p [ngStyle]="{'color': calificationColor(solution.evaluation)}" > {{ solution.evaluation }} </p>
+              }
             </div>
 
           </div>

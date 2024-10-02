@@ -15,7 +15,8 @@ import { SnackbarComponent } from '../../shared/snackbar/snackbar.component';
     CommonModule,
     RouterLink,
     ReactiveFormsModule,
-  ],
+    SnackbarComponent
+],
   templateUrl: './solution-detail.component.html',
   styleUrl: './solution-detail.component.css'
 })
@@ -79,7 +80,7 @@ export class SolutionDetailComponent implements OnInit {
         this.solService.calificateSolution(id!, evaluation!).subscribe(
           () => {
             this.snackbar.showSnackbar(
-              'Funciona', 
+              'Funciona',
               'La calificación ha sido enviada', 'success');
           }
         );

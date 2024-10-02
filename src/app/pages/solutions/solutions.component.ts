@@ -29,13 +29,12 @@ export class SolutionsComponent implements OnInit {
   }
 
   calificationColor( calif: number ){
-
-    if(calif < 3){
+    if (calif === 0){
+      return 'lightgray';
+    }else if(calif < 3){
       return 'var(--warn-color)';
-    } else if(calif < 5){
+    } else {
       return 'var(--button-primary)';
-    } else{
-      return 'var(--primary-color)';
     }
   }
 }

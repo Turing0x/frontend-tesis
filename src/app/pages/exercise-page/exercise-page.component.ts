@@ -1,18 +1,21 @@
-import { ChangeDetectorRef, Component, inject, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, inject, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ExerciseService} from '../../services/exercise-service.service';
 import { Exercise } from '../../interfaces/exercise.interface';
 import { CommonModule } from '@angular/common';
 import { SidebarComponent } from '../../components/sidebar/sidebar.component';
+import { SnackbarComponent } from '../../shared/snackbar/snackbar.component';
 
 @Component({
   selector: 'app-exercise-page',
   standalone: true,
-  imports: [CommonModule, SidebarComponent ],
+  imports: [CommonModule, SidebarComponent, SnackbarComponent],
   templateUrl: './exercise-page.component.html',
   styleUrl: './exercise-page.component.css'
 })
 export class ExercisePageComponent implements OnInit{
+
+  @ViewChild(SnackbarComponent) snackbar!: SnackbarComponent;
 
   private activatedRouter = inject(ActivatedRoute);
   private exSerive = inject(ExerciseService);
@@ -34,6 +37,10 @@ export class ExercisePageComponent implements OnInit{
 
   uploadFiles(): void {
     const $inputFiles = document.getElementById('file-upload') as HTMLInputElement;
+    if ( $inputFiles.files!.length === 0 ) {
+      this.snackbar.showSnackbar('No hay archivos para subir', 'No hay archivos para subir', 'error');
+      return;
+    }
     if (!$inputFiles || !$inputFiles.files) {
       return;
     }
@@ -60,6 +67,7 @@ export class ExercisePageComponent implements OnInit{
     a.click();
     window.URL.revokeObjectURL(url);
 
+
   }
 
   handleFilesUpload(file: FileList) {
@@ -73,6 +81,7 @@ export class ExercisePageComponent implements OnInit{
     this.exSerive.uploadSolution(this.exercise._id!, student_id, formData).subscribe(
       res => {
         console.log('res :>> ', res);
+        this.snackbar.showSnackbar('Archivo subido', 'El archivo ha sido subido exitosamente', 'success');
       }
     );
 

@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { Page404Component } from './shared/page-404/page-404.component';
+import { FinishedDetailComponent } from './pages/finished-detail/finished-detail.component';
 
 export const routes: Routes = [
   {
@@ -17,6 +18,10 @@ export const routes: Routes = [
   {
     path: 'exercise/:id',
     loadChildren: () => import('./routers/exercise.routes').then(m => m.ExerciseRoutes)
+  },
+  {
+    path: 'finished-detail/:id',
+    component: FinishedDetailComponent
   },
   {
     path: '',

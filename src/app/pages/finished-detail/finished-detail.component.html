@@ -1,0 +1,19 @@
+@if (exercise) {
+  <section>
+    <h2>Título del ejercicio:</h2>
+    <p> {{ exercise.title }} </p>
+
+    <h2>Descripción del ejercicio:</h2>
+    <p> {{ exercise.description }} </p>
+
+    <h2>Anotaciones:</h2>
+    @if (!exercise.annotations) {
+      <p class="no-anotations" >No hay anotaciones</p>
+    }@else {
+      <p class="anotations" > {{ exercise.annotations }} </p>
+    }
+  </section>
+
+}
+
+

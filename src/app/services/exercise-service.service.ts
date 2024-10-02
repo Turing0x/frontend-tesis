@@ -3,6 +3,7 @@ import { inject, Injectable } from '@angular/core';
 import { catchError, map, Observable, throwError } from 'rxjs';
 import Swal from 'sweetalert2';
 import { Exercise } from '../interfaces/exercise.interface';
+import { Solution } from '../interfaces/solution.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -44,6 +45,22 @@ export class ExerciseService {
         return throwError(() => e)
       })
     )
+  }
+
+  getFinishedById(id: string): Observable<[ Exercise, Solution]> { 
+    return this.http.get<any>(`${ this.url }/finished/${ id }`, {
+      headers: this.httpHeaders
+    }).pipe(
+      map(response => response.data ),
+        catchError(e => {
+          Swal.fire(
+            'Error Interno',
+            'Ha ocurrido algo grave. Contacte a soporte por favor',
+            'error'
+          )
+          return throwError(() => e)
+        })
+      );
   }
 
   getExercise(id: string) {

@@ -21,8 +21,7 @@ export class StudentService {
   }
 
   getFinishedExercises(id: string): Observable<Exercise[]> {
-    console.log(id);
-    return this.http.get<any>(`${ this.user_url }/finished/${ id }`, {
+    return this.http.get<any>(`${ this.user_url }/allfin/${ id }`, {
       headers: this.httpHeaders
     }).pipe(
       map(response => response.data),

@@ -4,4 +4,7 @@
   <p> {{description}} </p>
 
   <a [routerLink]="[ link , param ]" >Detalles</a>
+
+  <button *ngIf="id" (click)="onDelete()" type="button">Eliminar</button>
+
 </div>

@@ -168,11 +168,22 @@ export class ExcersiceDetailComponent implements OnInit {
       if (result.isConfirmed) {
         this.exService.deleteExercise( id ).subscribe(
           () => {
-            // this.snackbar.showSnackbar('Ejercicio eliminado', 'El ejercicio ha sido eliminado exitosamente', 'success');
+            Swal.fire({
+              title: 'eliminado',
+              text: 'El ejercicio ha sido eliminado exitosamente',
+              icon: 'success',
+              confirmButtonColor: '#3085d6',
+              confirmButtonText: 'OK'
+            });
             this.router.navigate(['/professor']);
           }
         );
       }
     }
   )}
+
+  showSB(){
+    this.snackbar.showSnackbar('Funciona', 'Todo ha funcionado bien', 'success');
+  }
+
 }

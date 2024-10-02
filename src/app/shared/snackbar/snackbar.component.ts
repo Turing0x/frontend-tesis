@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'shared-snackbar',
@@ -30,6 +30,7 @@ export class SnackbarComponent {
     const snackbarElement = document.getElementById('snackbar');
 
     snackbarElement!.style.opacity = '0';
+    snackbarElement!.style.zIndex = '-100';
 
     if (this.timeoutId) {
       clearTimeout(this.timeoutId);
@@ -44,10 +45,12 @@ export class SnackbarComponent {
 
     const snackbarElement = document.getElementById('snackbar');
 
+    snackbarElement!.style.zIndex = '100';
     snackbarElement!.style.opacity = '1';
 
     this.timeoutId = setTimeout(() => {
       snackbarElement!.style.opacity = '0';
+      snackbarElement!.style.zIndex = '-100';
     }, 2500);
   }
 

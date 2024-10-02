@@ -8,6 +8,8 @@
 - [x] Implementar Snackbars para mostrar mensajes cuando se crea un ejercicio exitosamente, falla, u otras acciones.
 - [x] Crear página 404.
 - [ ] Implementar paginación en las páginas de ejercicios y soluciones.
+- [ ] El estudiante despues de subir solucion el ejercicio salga de pending y pase a finished.
+- [ ] Cuando el estudiante ya dio solucion al ejercicio cuando vaya a los detalles del ejercicio en finished que edite archivos de solucion en vez de crear otra solucion
 
 ## Issues:
 

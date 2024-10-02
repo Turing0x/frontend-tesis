@@ -64,12 +64,10 @@ export class LoginPageComponent implements OnInit{
           this.redirectByRole(user.type);
         }else{
           this.snackbar.showSnackbar('Login Failed', 'Email o contraseña incorrectos', 'error');
-          console.log('Login failed', response.success);
         }
 
       },
       error => {
-        console.log(error);
       }
     )
   }

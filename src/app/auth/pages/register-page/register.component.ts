@@ -58,7 +58,6 @@ export class RegisterPageComponent {
         this.router.navigate(['/student']);
       },
       error => {
-        console.log(error);
       }
     )
   }

@@ -5,6 +5,7 @@ import { Exercise } from '../../interfaces/exercise.interface';
 import { CommonModule } from '@angular/common';
 import { SidebarComponent } from '../../components/sidebar/sidebar.component';
 import { SnackbarComponent } from '../../shared/snackbar/snackbar.component';
+import { downloadFile } from '../../helpers/download_file';
 
 @Component({
   selector: 'app-exercise-page',
@@ -49,25 +50,8 @@ export class ExercisePageComponent implements OnInit{
   }
 
   async downloadExerciseFile() {
-
     const ex_id = this.exercise._id;
-
-    const response = await fetch(`http://localhost:8080/api/exercises/download/${ex_id}`);
-
-    if( !response.ok ) {
-      return;
-    }
-
-    const blob = await response.blob();
-    const url = window.URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `prueba.rar`;
-    document.body.appendChild(a);
-    a.click();
-    window.URL.revokeObjectURL(url);
-
-
+    downloadFile('exercises', ex_id!);
   }
 
   handleFilesUpload(file: FileList) {
@@ -80,7 +64,6 @@ export class ExercisePageComponent implements OnInit{
 
     this.exSerive.uploadSolution(this.exercise._id!, student_id, formData).subscribe(
       res => {
-        console.log('res :>> ', res);
         this.snackbar.showSnackbar('Archivo subido', 'El archivo ha sido subido exitosamente', 'success');
       }
     );

@@ -66,7 +66,7 @@ export class ExcerciseCreateComponent implements OnInit {
     formData.append('description', descriptionValue);
     formData.append('annotations', annotationsValue);
     formData.append('exFile', excFiles.files![0]);
-    formData.append('solFile', solutionFiles.files![0]);
+    formData.append('possibleSolFile', solutionFiles.files![0]);
 
     Swal.fire({
       title: '¿Estás seguro?',

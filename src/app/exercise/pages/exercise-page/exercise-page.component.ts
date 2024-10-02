@@ -45,7 +45,7 @@ export class ExercisePageComponent implements OnInit{
 
     const ex_id = this.exercise._id;
 
-    const response = await fetch(`http://localhost:8080/api/solutions/download/${ex_id}`);
+    const response = await fetch(`http://localhost:8080/api/excercises/download/${ex_id}`);
 
     if( !response.ok ) {
       return;
@@ -55,7 +55,7 @@ export class ExercisePageComponent implements OnInit{
     const url = window.URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = 'ejercicio.rar';
+    a.download = `prueba.rar`;
     document.body.appendChild(a);
     a.click();
     window.URL.revokeObjectURL(url);
@@ -65,7 +65,7 @@ export class ExercisePageComponent implements OnInit{
   handleFilesUpload(file: FileList) {
 
     const formData = new FormData();
-    formData.append('file', file[0]);
+    formData.append('solutionFile', file[0]);
 
     const student_id = localStorage.getItem('user_id');
     if( !student_id ) return;

@@ -1,12 +1,14 @@
 import { ChangeDetectorRef, Component, inject, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { Solution } from '../../interfaces/solution.interface';
 import { SolutionService } from '../../services/solution.service';
 
 @Component({
   selector: 'app-solution-detail',
   standalone: true,
-  imports: [],
+  imports: [
+    RouterLink,
+  ],
   templateUrl: './solution-detail.component.html',
   styleUrl: './solution-detail.component.css'
 })
@@ -27,6 +29,10 @@ export class SolutionDetailComponent implements OnInit {
         this.cdrf.detectChanges();
       });
     });
+  }
+
+  onDownload(){
+    console.log('descargar');
   }
 
 }

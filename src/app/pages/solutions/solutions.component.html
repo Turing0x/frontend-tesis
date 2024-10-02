@@ -5,11 +5,43 @@
   <ul>
 
     @for (solution of solutions; track $index) {
-      <shared-card
-      [description]="solution.file_name"
-      [link]="'/professor/solution/details/'"
-      [param]="solution._id"
-    ></shared-card>
+
+      <div class="card">
+
+        <div class="field sp">
+
+          <div class="author">
+            <h3>Autor:</h3>
+            <p>{{ solution.student_id.full_name }} Fulanito Perez</p>
+            <span>Grupo: <p> {{ solution.student_id.group }} 3401 </p> </span>
+          </div>
+
+          <div [ngStyle]="{'background-color': calificationColor()}" class="calification-container">
+
+            <div class="calification">
+
+            </div>
+
+          </div>
+        </div>
+
+        <div class="excercise-container field">
+          <div>
+            <h3>Solución al ejercicio:</h3>
+            <p>{{ solution.exercise_id.title }} Ejercio de ip.</p>
+          </div>
+          <a routerLink="/professor/excersice/details/{{ solution.exercise_id }}" class="excersice-link">Detalles del ejercicio</a>
+        </div>
+
+        <div>
+          <h3>Fecha:</h3>
+        <p> {{ solution.date }} 16/10/2022</p>
+        </div>
+
+        <a class="btn" routerLink="/professor/solution/details/{{ solution._id }}">Ver</a>
+
+      </div>
+
     }
 
   </ul>

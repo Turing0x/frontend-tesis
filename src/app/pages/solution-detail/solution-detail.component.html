@@ -2,22 +2,56 @@
 
   <section>
 
+    <h1 class="head-title">Detalles de la solución</h1>
 
     <div>
-      <h1>Autor:</h1>
+
+      <div class="field">
+        <h1>Autor:</h1>
       <span> {{ this.solution.student_id.full_name }} </span>
+      </div>
 
-      <h1>Respuesta al ejercicio:</h1>
-      <span> {{ this.solution.exercise_id.title }} </span>
+      <div class="field">
+        <h1>Grupo:</h1>
+        <span> {{ this.solution.student_id.group }} </span>
+      </div>
 
-      <h1>Fecha de publicación:</h1>
-      <span> {{ this.solution.date }} </span>
+      <div class="field">
+        <h1>Respuesta al ejercicio:</h1>
+        <span> {{ this.solution.exercise_id.title }} </span>
+        <a routerLink="/professor/excersice/details/{{ this.solution.exercise_id._id }}" class="excersice-link">Detalles del ejercicio</a>
+      </div>
 
-      <h1>Evaluación: </h1>
-      <span> {{ this.solution.evaluation }} </span>
+      <div class="field">
+        <h1>Fecha de publicación:</h1>
+        <span> {{ this.solution.date }} </span>
+      </div>
 
-      <h1>Anotaciones:</h1>
-      <span> {{ this.solution.anotations }} </span>
+      <div class="field">
+        @if (this.solution.evaluation !== 0) {
+          <h1>Evaluación: </h1>
+          <span> {{ this.solution.evaluation }} </span>
+        } @else {
+          <h1>Aún sin evaluación.</h1>
+        }
+      </div>
+
+      <div class="field">
+        @if (this.solution.anotations !== undefined) {
+          <h1>Anotaciones:</h1>
+          <span> {{ this.solution.anotations }} </span>
+        } @else {
+          <h1>No hay anotaciones en esta solución.</h1>
+        }
+      </div>
+
+      <div class="field">
+        <h1>Archivo de solución:</h1>
+        <button (click)="onDownload()">
+          <i class="material-icons">file_download</i>
+          Descargar archivos
+        </button>
+      </div>
 
     </div>
 

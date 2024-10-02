@@ -54,5 +54,19 @@ export class SolutionService {
       );
   }
 
+  calificateSolution(id: string, evaluation: number): Observable<Solution> {
+    return this.http.put<any>(`${this.user_url}/${id}`, {evaluation}).pipe(
+      map(response => response.data),
+        catchError(e => {
+          Swal.fire(
+            'Error Interno',
+            'Ha ocurrido algo grave. Contacte a soporte por favor',
+            'error'
+          )
+          return throwError(() => e)
+        })
+      );
+  }
+
 
 }

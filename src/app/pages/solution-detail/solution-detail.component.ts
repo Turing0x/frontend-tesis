@@ -1,10 +1,12 @@
-import { ChangeDetectorRef, Component, inject, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, inject, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { Solution } from '../../interfaces/solution.interface';
 import { SolutionService } from '../../services/solution.service';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ValidatorService } from '../../validators/validator.service';
+import Swal from 'sweetalert2';
+import { SnackbarComponent } from '../../shared/snackbar/snackbar.component';
 
 @Component({
   selector: 'app-solution-detail',
@@ -18,6 +20,8 @@ import { ValidatorService } from '../../validators/validator.service';
   styleUrl: './solution-detail.component.css'
 })
 export class SolutionDetailComponent implements OnInit {
+
+  @ViewChild(SnackbarComponent) snackbar!: SnackbarComponent;
 
   private cdrf = inject(ChangeDetectorRef);
 
@@ -38,6 +42,7 @@ export class SolutionDetailComponent implements OnInit {
       const id = params['id'];
       this.solService.getSolution(id).subscribe(solution => {
         this.solution = solution;
+        this.myForm.controls['evaluation'].setValue(solution.evaluation);
         this.cdrf.detectChanges();
       });
     });
@@ -52,6 +57,34 @@ export class SolutionDetailComponent implements OnInit {
       this.myForm.markAllAsTouched();
       return;
     }
+  }
+
+  calificateSolution() {
+
+    if (this.myForm.invalid) return;
+
+    const id = this.solution._id;
+    const evaluation = this.myForm.get('evaluation')?.value;
+
+    Swal.fire({
+      title: '¿Estás seguro?',
+      text: 'Esta acción no se puede deshacer',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sí, calificar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.solService.calificateSolution(id!, evaluation!).subscribe(
+          () => {
+            this.snackbar.showSnackbar(
+              'Funciona', 
+              'La calificación ha sido enviada', 'success');
+          }
+        );
+      }
+    });
   }
 
   isValidField( field: string ): boolean | null {

@@ -2,7 +2,7 @@ ul {
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* Tres columnas */
   gap: 20px;
-  padding: 20px;
+  padding: 20px; /* Limita a 3 filas de 300px de altura cada una, con 20px de gap entre filas */
   max-height: calc(3 * 300px + 2 * 20px); /* Limita a 3 filas de 300px de altura cada una, con 20px de gap entre filas */
   overflow-y: auto; /* Permite desplazamiento vertical si hay más de 3 filas */
 }

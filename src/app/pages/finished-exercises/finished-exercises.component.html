@@ -1,1 +1,14 @@
 <h1>Ejercicios terminados</h1>
+
+@if (exercises.length !== 0) {
+  <ul>
+    @for (exercise of exercises; track $index) {
+      <shared-card
+        title="{{ exercise.title }}"
+        description="{{ exercise.description }}"
+        [link]="'/exercise'"
+        [param]="exercise._id!"
+      ></shared-card>
+    }
+  </ul>
+}

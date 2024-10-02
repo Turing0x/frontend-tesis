@@ -3,13 +3,14 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component, inject } from '@
 import { Exercise } from '../../interfaces/exercise.interface';
 import { ExerciseService } from '../../services/exercise-service.service';
 import { ActivatedRoute } from '@angular/router';
-import { StudentService } from '../../services/student.service';
 import { Solution } from '../../interfaces/solution.interface';
 
 @Component({
   selector: 'finished-detail',
   standalone: true,
-  imports: [],
+  imports: [
+    CommonModule
+  ],
   templateUrl: './finished-detail.component.html',
   styleUrl: './finished-detail.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -34,6 +35,16 @@ export class FinishedDetailComponent {
         }
       );
     })
+  }
+
+  calificationColor( calif: number ){
+    if (calif === 0){
+      return 'lightgray';
+    }else if(calif < 3){
+      return 'var(--warn-color)';
+    } else {
+      return 'var(--button-primary)';
+    }
   }
 
 }

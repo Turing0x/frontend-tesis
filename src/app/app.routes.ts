@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { Page404Component } from './shared/page-404/page-404.component';
 
 export const routes: Routes = [
   {
@@ -31,4 +32,8 @@ export const routes: Routes = [
     },
     pathMatch: 'full'
   },
+  {
+    path: '**',
+    component: Page404Component
+  }
 ];

@@ -9,9 +9,10 @@ export const routes: Routes = [
     component: HomePageComponent,
     children: [
       {
-        path: 'solutions',
+        path: '',
         component: SolutionsComponent,
-        title: 'Soluciones'
+        title: 'Soluciones',
+        pathMatch: 'full'
       },
       {
         path: 'details/:id',

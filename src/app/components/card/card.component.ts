@@ -48,7 +48,6 @@ export class CardComponent {
               confirmButtonText: 'OK'
             });
             window.location.reload();
-            //Reload Component
           }
         );
       }

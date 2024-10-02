@@ -7,17 +7,17 @@ import { SnackbarComponent } from "../../shared/snackbar/snackbar.component";
 import { ExerciseService } from '../../services/exercise-service.service';
 
 @Component({
-  selector: 'app-excercise-create',
+  selector: 'app-exercise-create',
   standalone: true,
   imports: [
     CommonModule,
     ReactiveFormsModule,
     SnackbarComponent
 ],
-  templateUrl: './excercise-create.component.html',
-  styleUrl: './excercise-create.component.css'
+  templateUrl: './exercise-create.component.html',
+  styleUrl: './exercise-create.component.css'
 })
-export class ExcerciseCreateComponent implements OnInit {
+export class ExerciseCreateComponent implements OnInit {
 
   @ViewChild(SnackbarComponent) snackbar!: SnackbarComponent;
 
@@ -41,10 +41,10 @@ export class ExcerciseCreateComponent implements OnInit {
     return this.validatorService.isValidField( this.myForm, field );
   }
 
-  noExcerciseFile(): boolean{
-    const ExcerciseFileInput = document.getElementById('exercise-files') as HTMLInputElement
+  noExerciseFile(): boolean{
+    const ExerciseFileInput = document.getElementById('exercise-files') as HTMLInputElement
 
-    return ExcerciseFileInput!.files!.length === 0;
+    return ExerciseFileInput!.files!.length === 0;
   }
 
   onSave(){
@@ -77,7 +77,7 @@ export class ExcerciseCreateComponent implements OnInit {
       confirmButtonText: 'Sí, guardar'
     }).then((result) => {
       if (result.isConfirmed) {
-        this.exService.createExcercise( formData ).subscribe(
+        this.exService.createExercise( formData ).subscribe(
           () => {
             this.snackbar.showSnackbar('Ejercicio creado', 'El ejercicio ha sido creado exitosamente', 'success');
             this.myForm.reset();

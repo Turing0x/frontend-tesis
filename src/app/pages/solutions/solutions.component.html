@@ -29,15 +29,15 @@
           </div>
         </div>
 
-        <div class="excercise-container field">
+        <div class="exercise-container field">
           <div>
             <h3>Solución al ejercicio:</h3>
             <p>{{ solution.exercise_id.title }}</p>
           </div>
-          <a routerLink="/professor/excersice/details/{{ solution.exercise_id._id }}" class="excersice-link">Detalles del ejercicio</a>
+          <a routerLink="/exercise/details/{{ solution.exercise_id._id }}" class="exercise-link">Detalles del ejercicio</a>
         </div>
 
-        <a class="btn" routerLink="/professor/solution/details/{{ solution._id }}">Ver</a>
+        <a class="btn" routerLink="/solution/details/{{ solution._id }}">Ver</a>
 
       </div>
 

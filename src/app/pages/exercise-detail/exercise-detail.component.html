@@ -1,5 +1,5 @@
 <shared-snackbar></shared-snackbar>
-@if (excersice) {
+@if (exercise) {
 
   <form [formGroup]="myForm" (ngSubmit)="onSave()" class="exercise-form">
 
@@ -24,8 +24,8 @@
 
     <div class="to-hide form-group hidden">
       <label for="exercise-files">Ficheros del ejercicio:</label>
-      <input (change)="noExcerciseFile()" type="file" id="exercise-files">
-      <!-- <span *ngIf="noExcerciseFile()" class="error">Archivo requerido</span> -->
+      <input (change)="noExerciseFile()" type="file" id="exercise-files">
+      <!-- <span *ngIf="noExerciseFile()" class="error">Archivo requerido</span> -->
     </div>
 
     <div class="to-hide form-group hidden">

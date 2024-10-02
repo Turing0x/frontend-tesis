@@ -11,7 +11,7 @@ import { Solution } from '../interfaces/solution.interface';
 export class ExerciseService {
 
   private http = inject(HttpClient);
-  private url = 'http://localhost:8080/api/excercises';
+  private url = 'http://localhost:8080/api/exercises';
 
   private get httpHeaders() {
     return new HttpHeaders({
@@ -19,7 +19,7 @@ export class ExerciseService {
     });
   }
 
-  getAllExcercises(): Observable<Exercise[]> {
+  getAllExercises(): Observable<Exercise[]> {
     return this.http.get<any>(this.url, {headers: this.httpHeaders}).pipe(
       map( resp => resp.data ),
       catchError(e => {
@@ -95,7 +95,7 @@ export class ExerciseService {
       );
   }
 
-  createExcercise(data: FormData) {
+  createExercise(data: FormData) {
 
     return this.http.post<any>(this.url, data).pipe(
       map( resp => resp.data ),

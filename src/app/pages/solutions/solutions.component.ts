@@ -34,9 +34,9 @@ export class SolutionsComponent implements OnInit {
     )
   }
 
-  calificationColor(){
+  calificationColor( calif: number ){
 
-    const solution = 5;
+    const solution = calif;
 
     if(solution < 3){
       return 'var(--warn-color)';

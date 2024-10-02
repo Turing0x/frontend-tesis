@@ -53,6 +53,16 @@
         </button>
       </div>
 
+      <div class="field">
+        <form ng [formGroup]="myForm" (ngSubmit)="onSubmit()">
+
+          <input formControlName="evaluation" type="number">
+          <span class="error" *ngIf="isValidField('evaluation')">La evaluacion es requerida y debe ser un numero entre 2 y 5.</span>
+
+          <button type="submit">Calificar</button>
+        </form>
+      </div>
+
     </div>
 
   </section>

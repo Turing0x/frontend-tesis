@@ -100,6 +100,11 @@ span{
 }
 
 .calification{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
   width: 44px;
   height: 44px;
   border-radius: 100%;

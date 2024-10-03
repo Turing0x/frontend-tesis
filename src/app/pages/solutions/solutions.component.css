@@ -37,12 +37,16 @@ select{
   margin-left: 20px;
   height: 32px;
   width: 150px;
-  padding: 10px;
   border-radius: 4px;
+  color: var(--text-color-secondary);
   border: 1px solid #ccc;
   background-color: white;
   color: var(--text-color-primary);
   cursor: pointer;
+}
+
+.p{
+  color: var(--text-color-secondary);
 }
 
 .btn{
@@ -56,6 +60,7 @@ select{
   display: inline-block;
   font-size: 16px;
   border-radius: 4px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 }
 
 .btn:hover {

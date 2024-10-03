@@ -6,20 +6,20 @@
     <div class="form-group">
       <label for="title">Título del ejercicio:</label>
       <input
-        readonly formControlName="title" type="text" id="title" placeholder="Ingresa un título" required>
+        [readonly]="!allowEdit" formControlName="title" type="text" id="title" placeholder="Ingresa un título" required>
       <span *ngIf="isValidField('title')" class="error">título requerido</span>
     </div>
 
     <div class="form-group">
       <label for="description">Descripción del ejercicio:</label>
       <input
-        readonly formControlName="description" type="text" id="description" placeholder="Ingresa la descripción" required>
+        [readonly]="!allowEdit" formControlName="description" type="text" id="description" placeholder="Ingresa la descripción" required>
         <span *ngIf="isValidField('description')" class="error">Descripción requerida</span>
     </div>
 
     <div class="form-group">
       <label for="destine">Grupo de destino del ejercicio:</label>
-      <input [readonly]="allStudents"
+      <input [readonly]="allStudents || !allowEdit"
              formControlName="destine"
              type="text"
              id="destine"
@@ -27,7 +27,7 @@
              required>
       <span *ngIf="isValidField('destine') && !allStudents" class="error">Destino requerido</span>
 
-      <div class="checkbox-container">
+      <div class="checkbox-container to-hide hidden">
         <span>Enviar a todos los estudiantes</span>
         <input (change)="toggleAllStudents($event)" id="checkbox" type="checkbox">
       </div>
@@ -35,7 +35,7 @@
 
     <div class="form-group">
       <label for="annotations">Anotaciones:</label>
-      <input readonly formControlName="annotations" type="text" id="annotations" placeholder="Ingresa anotaciones">
+      <input [readonly]="!allowEdit" formControlName="annotations" type="text" id="annotations" placeholder="Ingresa anotaciones">
     </div>
 
     <div class="to-hide form-group hidden">

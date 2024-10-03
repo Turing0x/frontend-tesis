@@ -14,6 +14,7 @@
 - [X] Validar el login cuando es incorrecta la contraseña y el usuario no existe.
 - [ ] Al eliminar un ejercicio que se borren todas las soluciones asociadas.
 - [ ] Avisar en el Swal de eliminar ejercicio que tamb se borraran todas las soluciones asociadas.
+- [ ] Si es posible, hacer todo responsive.
 
 ## Issues:
 

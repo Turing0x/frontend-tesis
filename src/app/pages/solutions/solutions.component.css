@@ -105,6 +105,8 @@ span{
   justify-content: center;
   align-items: center;
   font-size: 30px;
+  font-weight: bold;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   width: 45px;
   height: 45px;
   border-radius: 100%;

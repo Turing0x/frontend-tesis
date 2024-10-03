@@ -22,14 +22,16 @@ export class ExerciseCreateComponent implements OnInit {
   @ViewChild(SnackbarComponent) snackbar!: SnackbarComponent;
 
   private fb = inject(FormBuilder);
-
   private exService = inject(ExerciseService);
-
   private validatorService = inject(ValidatorService);
+
+  public allStudents: boolean = false;
+
 
   myForm: FormGroup = this.fb.group({
     title: ['prueba', Validators.required],
     description: ['prueba', Validators.required],
+    destine: ['prueba', Validators.required],
     annotations: ['prueba'],
   })
 
@@ -45,6 +47,11 @@ export class ExerciseCreateComponent implements OnInit {
     const ExerciseFileInput = document.getElementById('exercise-files') as HTMLInputElement
 
     return ExerciseFileInput!.files!.length === 0;
+  }
+
+  toggleAllStudents(event: Event): void {
+    const checkbox = event.target as HTMLInputElement;
+    this.allStudents = checkbox.checked;
   }
 
   onSave(){

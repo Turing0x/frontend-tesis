@@ -80,3 +80,15 @@ button:hover {
 .cancel-edit {
   background-color: rgb(178, 96, 96);
 }
+
+.checkbox-container{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: start;
+}
+
+.checkbox-container input{
+  margin-left: 10px;
+  -webkit-transform: scale(1.2);
+}

@@ -31,10 +31,12 @@ export class ExcersiceDetailComponent implements OnInit {
   private router = inject(Router);
 
   public exercise!: Exercise;
+  public allStudents: boolean = false;
 
   myForm: FormGroup = this.fb.group({
     title: ['', Validators.required],
     description: ['', Validators.required],
+    destine: ['', Validators.required],
     annotations: [''],
   })
 
@@ -63,6 +65,11 @@ export class ExcersiceDetailComponent implements OnInit {
   noExerciseFile(): boolean{
     const ExerciseFileInput = document.getElementById('exercise-files') as HTMLInputElement
     return ExerciseFileInput!.files!.length === 0;
+  }
+
+  toggleAllStudents(event: Event): void {
+    const checkbox = event.target as HTMLInputElement;
+    this.allStudents = checkbox.checked;
   }
 
   onSave(){

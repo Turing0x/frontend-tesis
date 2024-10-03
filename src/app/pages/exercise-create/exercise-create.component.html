@@ -17,6 +17,22 @@
   </div>
 
   <div class="form-group">
+    <label for="destine">Grupo de destino del ejercicio:</label>
+    <input [readonly]="allStudents"
+           formControlName="destine"
+           type="text"
+           id="destine"
+           placeholder="Ingresa el grupo de destino"
+           required>
+    <span *ngIf="isValidField('destine') && !allStudents" class="error">Destino requerido</span>
+
+    <div class="checkbox-container">
+      <span>Enviar a todos los estudiantes</span>
+      <input (change)="toggleAllStudents($event)" id="checkbox" type="checkbox">
+    </div>
+  </div>
+
+  <div class="form-group">
     <label for="annotations">Anotaciones:</label>
     <input  formControlName="annotations" type="text" id="annotations" placeholder="Ingresa anotaciones">
   </div>

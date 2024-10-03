@@ -2,9 +2,32 @@
 
   <h1>Soluciones</h1>
 
+  <div class="filter-container" >
+
+    <input id="search" type="text" placeholder="Buscar por nombre de estudiante">
+
+    <select name="group" id="group" (change)="onGroupChange()">
+      <option value="all">Todos los grupos</option>
+      @for (group of gropus; track $index) {
+        <option [value]="group">Grupo {{ group }}</option>
+      }
+    </select>
+    
+    <div class="toggle-container">
+      <input type="checkbox" id="toggle" class="toggle-input" (change)="onEvaluateChange()" />
+      <label for="toggle" class="toggle-label">
+        <span class="toggle-button"></span>
+      </label>
+    </div>
+    <p>Pendientes a evaluar</p>
+    
+  </div>
+  
+  <hr>
+
   <ul>
 
-    @for (solution of solutions; track $index) {
+    @for (solution of solutions_aux; track $index) {
 
       <div class="card">
 

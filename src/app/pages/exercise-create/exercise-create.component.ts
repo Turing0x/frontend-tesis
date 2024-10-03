@@ -27,12 +27,11 @@ export class ExerciseCreateComponent implements OnInit {
 
   public allStudents: boolean = false;
 
-
   myForm: FormGroup = this.fb.group({
-    title: ['prueba', Validators.required],
-    description: ['prueba', Validators.required],
-    destine: ['prueba', Validators.required],
-    annotations: ['prueba'],
+    title: ['', Validators.required],
+    description: ['', Validators.required],
+    destine: [''],
+    annotations: [''],
   })
 
   ngOnInit(): void {
@@ -51,19 +50,28 @@ export class ExerciseCreateComponent implements OnInit {
 
   toggleAllStudents(event: Event): void {
     const checkbox = event.target as HTMLInputElement;
+    this.myForm.controls['destine'].reset();
     this.allStudents = checkbox.checked;
   }
 
   onSave(){
 
     const excFiles = document.getElementById('exercise-files') as HTMLInputElement;
+
+    console.log(this.myForm.controls['title'].errors);
+    console.log(this.myForm.controls['description'].errors);
+    console.log(this.myForm.controls['destine'].errors);
+    console.log(this.myForm.controls['annotations'].errors);
+
     if( this.myForm.invalid || !excFiles || excFiles.files?.length === 0 ) {
+      this.snackbar.showSnackbar('Error', 'El formulario no es válido', 'error');
       this.myForm.markAllAsTouched();
       return;
     }
     const titleValue = this.myForm.get('title')?.value;
     const descriptionValue = this.myForm.get('description')?.value;
     const annotationsValue = this.myForm.get('annotations')?.value;
+    const destineValue = this.myForm.get('destine')?.value;
 
     const solutionFiles = document.getElementById('solution-files') as HTMLInputElement;
 
@@ -71,6 +79,7 @@ export class ExerciseCreateComponent implements OnInit {
     formData.append('title', titleValue);
     formData.append('description', descriptionValue);
     formData.append('annotations', annotationsValue);
+    formData.append('destine', this.allStudents ? '0' : destineValue);
     formData.append('exFile', excFiles.files![0]);
     formData.append('possibleSolFile', solutionFiles.files![0]);
 

@@ -33,6 +33,8 @@ export class ExcersiceDetailComponent implements OnInit {
   public exercise!: Exercise;
   public allStudents: boolean = false;
 
+  public allowEdit: boolean = false;
+
   myForm: FormGroup = this.fb.group({
     title: ['', Validators.required],
     description: ['', Validators.required],
@@ -49,6 +51,7 @@ export class ExcersiceDetailComponent implements OnInit {
             this.myForm.controls['title'].setValue(exc.title);
             this.myForm.controls['description'].setValue(exc.description);
             this.myForm.controls['annotations'].setValue(exc.annotations);
+            this.myForm.controls['destine'].setValue(exc.destine);
 
             this.exercise = exc}
         );
@@ -69,6 +72,7 @@ export class ExcersiceDetailComponent implements OnInit {
 
   toggleAllStudents(event: Event): void {
     const checkbox = event.target as HTMLInputElement;
+    this.myForm.controls['destine'].reset();
     this.allStudents = checkbox.checked;
   }
 
@@ -118,7 +122,6 @@ export class ExcersiceDetailComponent implements OnInit {
 
     const tohide = document.getElementsByClassName('to-hide');
     const editBtn = document.getElementById('edit-btn') as HTMLButtonElement;
-    const textInput = document.getElementsByTagName('input');
 
     Array.from(tohide).forEach(element => {
       const classList = element.classList;
@@ -138,16 +141,7 @@ export class ExcersiceDetailComponent implements OnInit {
       }
     });
 
-    Array.from(textInput).forEach(input => {
-      if(input.type === 'text'){
-        const att = input.attributes;
-        if( att.getNamedItem('readonly') ){
-          input.removeAttribute('readonly')
-        } else {
-          input.readOnly = true;
-        }
-      }
-    });
+    this.allowEdit = !this.allowEdit
 
   }
 

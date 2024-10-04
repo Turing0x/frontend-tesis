@@ -6,13 +6,13 @@
 
     <div>
       <label for="email">Email:</label>
-      <input autocomplete="off" placeholder="nombre@ejemplo.com" formControlName="email" id="email" type="text">
+      <input placeholder="nombre@ejemplo.com" formControlName="email" id="email" type="text">
       <span *ngIf="isValidField('email')" class="error">Email invalido</span>
     </div>
 
     <div>
       <label for="password">Contraseña:</label>
-      <input autocomplete="off" formControlName="password" id="password" type="text">
+      <input formControlName="password" id="password" type="text">
       <!-- <span class="error"></span> -->
     </div>
 

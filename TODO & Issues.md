@@ -15,7 +15,7 @@
 - [ ] Al eliminar un ejercicio que se borren todas las soluciones asociadas.
 - [ ] Avisar en el Swal de eliminar ejercicio que tamb se borraran todas las soluciones asociadas.
 - [ ] Si es posible, hacer todo responsive.
-- [ ] !!! IMPORTANTE: Cuando el PROFESOR accede a la página de DETALLES un ejercicio, no se debe mostrar campo de SUBIR SOLUCIÓN.
+- [x] !!! IMPORTANTE: Cuando el PROFESOR accede a la página de DETALLES un ejercicio, no se debe mostrar campo de SUBIR SOLUCIÓN.
 
 ## Issues:
 

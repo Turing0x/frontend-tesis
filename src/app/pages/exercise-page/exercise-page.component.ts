@@ -70,4 +70,8 @@ export class ExercisePageComponent implements OnInit{
 
   }
 
+  isStudent(): boolean{
+    return localStorage.getItem('user_type') === 'student';
+  }
+
 }

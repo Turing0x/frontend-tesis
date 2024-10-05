@@ -7,6 +7,7 @@ import { FinishedExercisesComponent } from '../pages/finished-exercise/finished-
 import { PendingExercicesComponent } from '../pages/pending-exercices/pending-exercices.component';
 import { ExcersiceDetailComponent } from '../pages/exercise-detail/exercise-detail.component';
 import { ExercisePageComponent } from '../pages/exercise-page/exercise-page.component';
+import { ConfigFilesComponent } from '../pages/config-files/config-files.component';
 
 export const routes: Routes = [
   {
@@ -34,6 +35,11 @@ export const routes: Routes = [
         path: 'finished',
         component: FinishedExercisesComponent,
         title: 'Ejercicios realizados'
+      },
+      {
+        path: 'config-files',
+        component: ConfigFilesComponent,
+        title: 'Generación de archivos de configuración'
       },
       {
         path: 'details/:id',

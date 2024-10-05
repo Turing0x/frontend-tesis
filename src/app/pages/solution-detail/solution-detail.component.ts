@@ -52,7 +52,7 @@ export class SolutionDetailComponent implements OnInit {
 
   async onDownload(){
     const sol_id = this.solution._id;
-    await downloadFile('solutions', sol_id)   
+    await downloadFile('solutions', sol_id)
   }
 
   onSubmit(){

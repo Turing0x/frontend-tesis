@@ -1,5 +1,5 @@
 export type FileInfo = {
-  name: string;
-  folder_name: string;
-  data: string[]
+  file_name?: string;
+  full_path?: string;
+  content?: string;
 }

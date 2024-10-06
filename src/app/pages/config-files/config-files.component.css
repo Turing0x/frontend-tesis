@@ -32,7 +32,22 @@ li {
   &:hover {
     background-color: rgb(199, 199, 199);
   }
+  &:active {
+    background-color: var(--primary-color);
+  }
+}
 
+ul .selected {
+  border: 1px solid var(--primary-color);
+  & svg{
+    color: var(--primary-color);
+  }
+}
+
+
+
+input:focus{
+  outline-color: var(--primary-color);
 }
 
 textarea {
@@ -43,6 +58,10 @@ textarea {
   padding: 10px;
 }
 
+textarea:focus {
+  outline-color: var(--primary-color);
+}
+
 .save-file {
   display: flex;
   justify-content: space-between;
@@ -51,7 +70,7 @@ textarea {
 
 .save-file button,
 .left button {
-  background-color: var(--primary-color);
+  background-color: var(--button-primary);
   color: var(--text-color-white);
   border: none;
   padding: 10px 20px;
@@ -63,6 +82,11 @@ textarea {
 
 .left button {
   margin-top: 20px;
+}
+
+.save-file button:hover,
+.left button:hover {
+  background-color: var(--button-primary-hover);
 }
 
 .left input {

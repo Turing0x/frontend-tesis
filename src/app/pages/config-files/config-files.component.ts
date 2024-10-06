@@ -3,17 +3,20 @@ import { FilesService } from '../../services/files.service';
 import { FileInfo } from '../../interfaces/file.interface';
 import Swal from 'sweetalert2';
 import { downloadFile } from '../../helpers/download_file';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-config-files',
   standalone: true,
-  imports: [],
+  imports: [
+    CommonModule
+  ],
   templateUrl: './config-files.component.html',
   styleUrl: './config-files.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ConfigFilesComponent implements OnInit{
-  
+
   private fileService = inject(FilesService);
   private cdrf = inject(ChangeDetectorRef);
 
@@ -28,7 +31,7 @@ export class ConfigFilesComponent implements OnInit{
         this.dataFilesAux = data
         this.currentFile.set(data[0]);
         this.cdrf.detectChanges();
-      } 
+      }
     );
   }
 
@@ -52,7 +55,7 @@ export class ConfigFilesComponent implements OnInit{
     this.fileService.saveFile(full_path, content!).subscribe(
       data => {
         console.log(data);
-      } 
+      }
     );
   }
 

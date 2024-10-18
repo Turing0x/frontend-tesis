@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
+import { AuthService } from '../../auth/services/auth.service';
 
 @Component({
   selector: 'shared-sidebar',
@@ -14,7 +15,8 @@ import { Router, RouterLink } from '@angular/router';
 })
 export class SidebarComponent implements OnInit {
 
-  private route = inject(Router);
+  private router = inject(Router);
+  private authService = inject(AuthService);
 
   public role!: string | null;
 
@@ -23,9 +25,8 @@ export class SidebarComponent implements OnInit {
   }
 
   onLogout(){
-    localStorage.removeItem('user_id');
-    localStorage.removeItem('user_type');
-    this.route.navigate(['/login']);
+    this.authService.logout();
+    this.router.navigate(['/login']);
   }
 
 }

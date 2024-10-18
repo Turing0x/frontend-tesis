@@ -32,6 +32,7 @@ export class AuthService {
   logout() {
     localStorage.removeItem('last_path');
     localStorage.removeItem('user_id');
+    localStorage.removeItem('role');
     this._authStatus.set(AuthStatus.notAuthenticated);
   }
 

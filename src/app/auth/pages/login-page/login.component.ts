@@ -77,9 +77,11 @@ export class LoginPageComponent implements OnInit{
     if ( role === 'professor' ){
       this.router.navigate(['/exercise/professor']);
       localStorage.setItem('last_path', 'professor');
+      localStorage.setItem('role', 'professor');
     } else {
       this.router.navigate(['/exercise/student']);
       localStorage.setItem('last_path', 'student');
+      localStorage.setItem('role', 'student');
     }
 
   }

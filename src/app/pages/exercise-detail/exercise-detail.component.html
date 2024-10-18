@@ -1,74 +1,97 @@
 <shared-snackbar></shared-snackbar>
 @if (exercise) {
 
-  <form [formGroup]="myForm" (ngSubmit)="onSave()" class="exercise-form">
+<form [formGroup]="myForm" (ngSubmit)="onSave()" class="exercise-form">
+  <div class="form-group">
+    <label for="title">Título del ejercicio:</label>
+    <input
+      [readonly]="!allowEdit"
+      formControlName="title"
+      type="text"
+      id="title"
+      placeholder="Ingresa un título"
+      required
+    />
+    <span *ngIf="isValidField('title')" class="error">título requerido</span>
+  </div>
 
-    <div class="form-group">
-      <label for="title">Título del ejercicio:</label>
+  <div class="form-group">
+    <label for="description">Descripción del ejercicio:</label>
+    <input
+      [readonly]="!allowEdit"
+      formControlName="description"
+      type="text"
+      id="description"
+      placeholder="Ingresa la descripción"
+      required
+    />
+    <span *ngIf="isValidField('description')" class="error"
+      >Descripción requerida</span
+    >
+  </div>
+
+  <div class="form-group">
+    <label for="destine">Grupo de destino del ejercicio:</label>
+    <input
+      [readonly]="allStudents || !allowEdit"
+      formControlName="destine"
+      type="text"
+      id="destine"
+      placeholder="Ingresa el grupo de destino"
+      required
+    />
+    <span *ngIf="isValidField('destine') && !allStudents" class="error"
+      >Destino requerido</span
+    >
+
+    <div class="checkbox-container to-hide hidden">
+      <span>Enviar a todos los estudiantes</span>
       <input
-        [readonly]="!allowEdit" formControlName="title" type="text" id="title" placeholder="Ingresa un título" required>
-      <span *ngIf="isValidField('title')" class="error">título requerido</span>
+        (change)="toggleAllStudents($event)"
+        id="checkbox"
+        type="checkbox"
+      />
     </div>
+  </div>
 
-    <div class="form-group">
-      <label for="description">Descripción del ejercicio:</label>
-      <input
-        [readonly]="!allowEdit" formControlName="description" type="text" id="description" placeholder="Ingresa la descripción" required>
-        <span *ngIf="isValidField('description')" class="error">Descripción requerida</span>
-    </div>
+  <div class="form-group">
+    <label for="annotations">Anotaciones:</label>
+    <input
+      [readonly]="!allowEdit"
+      formControlName="annotations"
+      type="text"
+      id="annotations"
+      placeholder="Ingresa anotaciones"
+    />
+  </div>
 
-    <div class="form-group">
-      <label for="destine">Grupo de destino del ejercicio:</label>
-      <input [readonly]="allStudents || !allowEdit"
-             formControlName="destine"
-             type="text"
-             id="destine"
-             placeholder="Ingresa el grupo de destino"
-             required>
-      <span *ngIf="isValidField('destine') && !allStudents" class="error">Destino requerido</span>
+  <div class="to-hide form-group hidden">
+    <label for="exercise-files">Ficheros del ejercicio:</label>
+    <input (change)="noExerciseFile()" type="file" id="exercise-files" />
+    <!-- <span *ngIf="noExerciseFile()" class="error">Archivo requerido</span> -->
+  </div>
 
-      <div class="checkbox-container to-hide hidden">
-        <span>Enviar a todos los estudiantes</span>
-        <input (change)="toggleAllStudents($event)" id="checkbox" type="checkbox">
-      </div>
-    </div>
+  <div class="to-hide form-group hidden">
+    <label for="solution-files">Posible solución:</label>
+    <input type="file" id="solution-files" />
+  </div>
 
-    <div class="form-group">
-      <label for="annotations">Anotaciones:</label>
-      <input [readonly]="!allowEdit" formControlName="annotations" type="text" id="annotations" placeholder="Ingresa anotaciones">
-    </div>
+  <div class="btn-container" (click)="onSave()">
+    <span class="to-hide hidden green-btn">
+      <!-- <i class="material-icons">save</i> -->
+      Guardar
+    </span>
 
-    <div class="to-hide form-group hidden">
-      <label for="exercise-files">Ficheros del ejercicio:</label>
-      <input (change)="noExerciseFile()" type="file" id="exercise-files">
-      <!-- <span *ngIf="noExerciseFile()" class="error">Archivo requerido</span> -->
-    </div>
+    <span class="green-btn" id="edit-btn" (click)="onEdit()">
+      <!-- <i class="material-icons">edit</i> -->
+      Editar
+    </span>
 
-    <div class="to-hide form-group hidden">
-      <label for="solution-files">Posible solución:</label>
-      <input type="file" id="solution-files">
-    </div>
-
-    <div class="btn-container" (click)="onSave()">
-      <span class="to-hide hidden green-btn" >
-        <!-- <i class="material-icons">save</i> -->
-        Guardar
-      </span>
-
-      <span class="green-btn" id="edit-btn" (click)="onEdit()">
-        <!-- <i class="material-icons">edit</i> -->
-        Editar
-      </span>
-
-      <span class="delete-btn" id="delete-btn" (click)="onDelete()">
-        <!-- <i class="material-icons">edit</i> -->
-        Eliminar
-      </span>
-
-    </div>
-
-
-
-  </form>
+    <span class="delete-btn" id="delete-btn" (click)="onDelete()">
+      <!-- <i class="material-icons">edit</i> -->
+      Eliminar
+    </span>
+  </div>
+</form>
 
 }

@@ -8,6 +8,7 @@ import { PendingExercicesComponent } from '../pages/pending-exercices/pending-ex
 import { ExcersiceDetailComponent } from '../pages/exercise-detail/exercise-detail.component';
 import { ExercisePageComponent } from '../pages/exercise-page/exercise-page.component';
 import { ConfigFilesComponent } from '../pages/config-files/config-files.component';
+import { WizardComponent } from '../pages/wizard/wizard.component';
 
 export const routes: Routes = [
   {
@@ -40,6 +41,11 @@ export const routes: Routes = [
         path: 'config-files',
         component: ConfigFilesComponent,
         title: 'Generación de archivos de configuración'
+      },
+      {
+        path: 'wizard',
+        component: WizardComponent,
+        title: 'Wizard'
       },
       {
         path: 'details/:id',

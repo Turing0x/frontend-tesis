@@ -20,6 +20,8 @@ import { MatButtonModule } from '@angular/material/button';
 
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatListModule } from '@angular/material/list';
+import { filesMock } from '../../mock/files.mock';
+import { ServiceFile } from '../../interfaces/service_file.interface';
 @Component({
   selector: 'app-wizard',
   standalone: true,
@@ -41,28 +43,14 @@ import { MatListModule } from '@angular/material/list';
 })
 export class WizardComponent implements OnInit {
 
-  private readonly INVARIABLE_CONTENT = {
-    'confautbasica.sh': `#!/bin/bash
-# -*- ENCODING: UTF-8 -*-
-cp -i hostname /etc/ #
-cp -i hosts /etc/ #
-cp -i resolv.conf /etc/ #
-cp -i interfaces /etc/network/ #
-/etc/init.d/networking restart #
-ifconfig #
-reboot #
-exit #`,
-    'resolv.conf': `domain robot.zone.cu
-search robot.zone.cu
-nameserver 127.0.0.1`,
-  };
+  public data = filesMock;
 
   constructor(private formBuilder: FormBuilder) {}
 
   serviceFormGroup = new FormGroup({
     bind: new FormControl(false),
-    share: new FormControl(false),
-    basicConfig: new FormControl(false),
+    compartir: new FormControl(false),
+    confbasica: new FormControl(true),
     dhcp: new FormControl(false),
     http: new FormControl(false),
   });
@@ -76,20 +64,18 @@ nameserver 127.0.0.1`,
       .map(([service]) => service);
   }
 
-  get selectedFiles(): string[] {
-    return Object.keys(this.parameterFormGroup.controls);
+  get selectedFiles(): ServiceFile[] {
+    const files: ServiceFile[] = [];
+
+    this.selectedServices.forEach((service) => {
+      files.push(...this.getServiceFiles(service));
+    });
+
+    return files;
   }
 
-  getServiceFiles(service: string): string[] {
-    // Map services to their associated files
-    const serviceFiles: Record<string, string[]> = {
-      bind: ['named.conf', 'zones/forward.zone', 'zones/reverse.zone'],
-      share: ['smb.conf', 'exports'],
-      basicConfig: ['hostname.conf', 'hosts'],
-      dhcp: ['dhcpd.conf'],
-      http: ['apache2.conf', 'sites-available/default'],
-    };
-    return serviceFiles[service] || [];
+  getServiceFiles(service: string): ServiceFile[] {
+    return this.data.find(s => s.name === service)?.files || [];
   }
 
   getFileType(file: string): string {
@@ -144,16 +130,12 @@ nameserver 127.0.0.1`,
     });
 
     this.serviceFormGroup = this.formBuilder.group({
-      basicConfig: [false],
       bind: [false],
-      share: [false],
+      compartir: [false],
+      confbasica: [false],
       dhcp: [false],
       http: [false]
     });
-  }
-
-  getInvariableContent(filename: keyof typeof this.INVARIABLE_CONTENT): string {
-    return this.INVARIABLE_CONTENT[filename] || '';
   }
 
   generateFiles() {
@@ -197,8 +179,8 @@ network ${this.parameterFormGroup.get('network')?.value ?? 'network'}`;
       'hostname': hostnameContent,
       'hosts': hostsContent,
       'interfaces': interfacesContent,
-      'confautbasica.sh': this.INVARIABLE_CONTENT['confautbasica.sh'],
-      'resolv.conf': this.INVARIABLE_CONTENT['resolv.conf'],
+      // 'confautbasica.sh': this.INVARIABLE_CONTENT['confautbasica.sh'],
+      // 'resolv.conf': this.INVARIABLE_CONTENT['resolv.conf'],
     });
   }
 

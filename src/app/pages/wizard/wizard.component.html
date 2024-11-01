@@ -1,5 +1,4 @@
 <div class="wizard-container">
-
   <h1>Generador de archvos</h1>
 
   <section>
@@ -8,99 +7,124 @@
       <mat-step [stepControl]="serviceFormGroup">
         <form [formGroup]="serviceFormGroup">
           <ng-template matStepLabel>Select Services</ng-template>
-          
+
           <div class="services-container">
-            <mat-checkbox formControlName="bind">Bind Service</mat-checkbox>
-            <mat-checkbox formControlName="share">Share Service</mat-checkbox>
-            <mat-checkbox formControlName="basicConfig">Basic Configuration</mat-checkbox>
-            <mat-checkbox formControlName="dhcp">DHCP Service</mat-checkbox>
-            <mat-checkbox formControlName="http">HTTP Service</mat-checkbox>
+            @for (service of data; track $index) {
+            <mat-checkbox formControlName="{{ service.name }}">
+              {{ service.displayName }}
+            </mat-checkbox>
+            }
           </div>
-    
+
           <div class="stepper-buttons">
-            <button mat-button matStepperNext [disabled]="!someServiceSelectes()">Next</button>
+            <button
+              mat-button
+              matStepperNext
+              [disabled]="!someServiceSelectes()"
+            >
+              Next
+            </button>
           </div>
         </form>
       </mat-step>
-    
+
       <!-- Step 2: File Selection -->
       <mat-step [stepControl]="fileFormGroup">
         <form class="form-file-section" [formGroup]="fileFormGroup">
           <ng-template matStepLabel>Select Files</ng-template>
-    
+
           <div *ngFor="let service of selectedServices" class="file-section">
             <h3>{{ service }} Files</h3>
-            <mat-selection-list formControlName="{{service}}Files">
-              <mat-list-option *ngFor="let file of getServiceFiles(service)" [value]="file">
-                {{ file }}
+            <mat-selection-list formControlName="{{ service }}Files">
+              @for (file of getServiceFiles(service); track $index) {
+              <mat-list-option
+                [selected]="file.mandatory"
+                [disabled]="file.mandatory"
+                [value]="file"
+              >
+                {{ file.name }}
               </mat-list-option>
+              }
             </mat-selection-list>
           </div>
-    
+
           <div class="stepper-buttons">
             <button mat-button matStepperPrevious>Back</button>
-            <button mat-button matStepperNext [disabled]="!fileFormGroup.valid">Next</button>
+            <button mat-button matStepperNext [disabled]="!fileFormGroup.valid">
+              Next
+            </button>
           </div>
         </form>
       </mat-step>
-    
+
       <mat-step [stepControl]="parameterFormGroup">
         <form class="form-parameter-section" [formGroup]="parameterFormGroup">
           <ng-template matStepLabel>Configure Parameters</ng-template>
-    
+
           <div class="parameter-form">
             <!-- Hostname Configuration -->
             <mat-form-field appearance="fill">
               <mat-label>Hostname</mat-label>
-              <input matInput formControlName="hostname" placeholder="Enter hostname">
+              <input
+                matInput
+                formControlName="hostname"
+                placeholder="Enter hostname"
+              />
               <mat-hint>Example: bender</mat-hint>
             </mat-form-field>
-    
+
             <!-- Network Configuration -->
             <mat-form-field appearance="fill">
               <mat-label>IP Address</mat-label>
-              <input matInput formControlName="address" placeholder="192.168.11.100">
+              <input
+                matInput
+                formControlName="address"
+                placeholder="192.168.11.100"
+              />
             </mat-form-field>
-    
+
             <mat-form-field appearance="fill">
               <mat-label>Netmask</mat-label>
-              <input matInput formControlName="netmask" placeholder="255.255.255.0">
-              
+              <input
+                matInput
+                formControlName="netmask"
+                placeholder="255.255.255.0"
+              />
             </mat-form-field>
-    
+
             <mat-form-field appearance="fill">
               <mat-label>Network</mat-label>
-              <input matInput formControlName="network" placeholder="192.168.11.0">
-              
+              <input
+                matInput
+                formControlName="network"
+                placeholder="192.168.11.0"
+              />
             </mat-form-field>
-    
+
             <!-- File Previews -->
             <div class="file-previews">
-              <mat-expansion-panel>
-                <mat-expansion-panel-header>
-                  <mat-panel-title>
-                    Preview: confautbasica.sh
-                  </mat-panel-title>
-                </mat-expansion-panel-header>
-                <pre>{{ getInvariableContent('confautbasica.sh') }}</pre>
-              </mat-expansion-panel>
-    
-              <mat-expansion-panel>
-                <mat-expansion-panel-header>
-                  <mat-panel-title>
-                    Preview: resolv.conf
-                  </mat-panel-title>
-                </mat-expansion-panel-header>
-                <pre>{{ getInvariableContent('resolv.conf') }}</pre>
-              </mat-expansion-panel>
+              @for (file of selectedFiles; track $index) {
+                @if (file.mandatory) {
+                  <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                      <mat-panel-title> Contenido: {{ file.name }} </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <pre>{{ file.content }}</pre>
+                  </mat-expansion-panel>
+                }
+              }
+
             </div>
           </div>
-    
+
           <div class="stepper-buttons">
             <button mat-button matStepperPrevious>Back</button>
-            <button mat-button color="primary" 
-                    (click)="generateFiles()" 
-                    [disabled]="!parameterFormGroup.valid">
+            <button
+              mat-button
+              color="primary"
+              (click)="generateFiles()"
+              [disabled]="!parameterFormGroup.valid"
+            >
               Generate Files
             </button>
           </div>
@@ -108,5 +132,4 @@
       </mat-step>
     </mat-horizontal-stepper>
   </section>
-
 </div>
